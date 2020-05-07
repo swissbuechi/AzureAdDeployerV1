@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="AzureAdDeployer" target="1.5" />
+      <module name="AzureAdDeployer" target="7" />
     </bytecodeTargetLevel>
   </component>
 </project>

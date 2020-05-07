@@ -1,15 +1,15 @@
 package ch.netider.AzureAdDeployer;
 
-import com.github.tuupertunut.powershelllibjava.PowerShell;
-import com.github.tuupertunut.powershelllibjava.PowerShellExecutionException;
+import ch.netider.AzureAdDeployer.console.CliGui;
+import ch.netider.AzureAdDeployer.console.Menu;
 
-import java.io.*;
-import java.util.Scanner;
 
 public class AzureAdDeployerApplication {
-    public static void main(String[] args) throws IOException, PowerShellExecutionException {
-        PowerShell powerShell = PowerShell.open();
-        powerShell.executeCommands("Connect-MsolService");
-        System.out.println(powerShell.executeCommands("Get-MsolUser"));
+    public static void main(String[] args) {
+        CliGui cliGui1 = new CliGui();
+        cliGui1.start();
+        String[] mainMenuList = {"Option1", "Option2", "Option3"};
+        Menu mainMenu = new Menu("Main", mainMenuList);
+        mainMenu.print();
     }
 }
