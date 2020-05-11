@@ -9,11 +9,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class PsSession {
 
-    private static final AtomicInteger uniqueId = new AtomicInteger();
+    private static final AtomicInteger UNIQUE_ID = new AtomicInteger();
 
     public String name;
     public int id;
-    public String type;
+    public String type = "Ps";
     public String status;
     public String input;
     public String output;
@@ -21,10 +21,9 @@ public class PsSession {
     public String rawOutput;
     public PowerShell powerShell;
 
-    public PsSession(String name, String type) {
+    public PsSession(String name) {
         this.name = name;
-        this.id = uniqueId.getAndIncrement();
-        this.type = type;
+        this.id = UNIQUE_ID.getAndIncrement();
     }
 
     public void open() {
@@ -47,13 +46,13 @@ public class PsSession {
                     return this.output;
                 }
             } catch (PowerShellExecutionException ex) {
-                ex.printStackTrace();
+                //ex.printStackTrace();
                 this.error = rawOutput;
             } catch (IOException ex) {
-                ex.printStackTrace();
+                //ex.printStackTrace();
                 this.error = rawOutput;
             } catch (NullPointerException ex) {
-                ex.printStackTrace();
+                //ex.printStackTrace();
                 this.error = rawOutput;
             }
         } else {

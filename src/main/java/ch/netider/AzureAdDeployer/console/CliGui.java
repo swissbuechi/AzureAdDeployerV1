@@ -14,8 +14,6 @@ public class CliGui {
     public void start() {
         clearConsole();
         System.out.println(
-                "\n" +
-                        "AzureAdDeployer 0.1" +
-                        "\n");
+                "\n" + "AzureAdDeployer 0.1" + "\n");
     }
 }
