@@ -31,19 +31,23 @@ public class Menu {
     }
 
     public void run() {
-        String input;
-        Scanner scanner = new Scanner(System.in);
-        while (true) {
-            System.out.println(this);
-            input = scanner.nextLine();
-            if (input.equals(EXIT)) {
-                return;
-            }
-            for (MenuOption menuOption : menuOptions) {
-                if (menuOption.getOption().equalsIgnoreCase(input)) {
-                    menuOption.selectOption();
+        try {
+            String input;
+            Scanner scanner = new Scanner(System.in);
+            while (true) {
+                System.out.println(this);
+                input = scanner.nextLine();
+                if (input.equals(EXIT)) {
+                    return;
+                }
+                for (MenuOption menuOption : menuOptions) {
+                    if (menuOption.getOption().equalsIgnoreCase(input)) {
+                        menuOption.selectOption();
+                    }
                 }
             }
+        } catch (java.util.NoSuchElementException ex) {
+            //ex.printStackTrace();
         }
     }
 
