@@ -1,6 +1,17 @@
 package ch.netider.AzureAdDeployer.console;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class CliSession {
+    private static final AtomicInteger UNIQUE_ID = new AtomicInteger();
+    String name;
+    int id;
+
+    public CliSession(String name) {
+        this.id = UNIQUE_ID.getAndIncrement();
+        this.name = name;
+    }
+
     public void run() {
         MenuStructure menuStructure = new MenuStructure();
         menuStructure.start();

@@ -1,0 +1,1 @@
+java -jar C:\Users\rapha\repos\AzureAdDeployer\target\AzureAdDeployer-1.0-SNAPSHOT.jar

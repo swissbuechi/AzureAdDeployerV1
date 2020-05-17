@@ -1,5 +1,6 @@
 package ch.netider.AzureAdDeployer.console;
 
+import ch.netider.AzureAdDeployer.session.MsolSession;
 import ch.netider.AzureAdDeployer.session.PsSession;
 
 public class MenuStructure {
@@ -26,8 +27,8 @@ public class MenuStructure {
         newSessionMenu.addOption(new MenuOption("1", "MsolSession") {
             @Override
             public void selectOption() {
-//                MsolSession msolSession = new MsolSession("MsolSession");
-//                msolSession.connect();
+                MsolSession msolSession = new MsolSession("MsolSession");
+                msolSession.connect();
                 PsSession psSession = new PsSession("PsSession");
                 psSession.open();
                 psSession.run("Connect-MsolService");
