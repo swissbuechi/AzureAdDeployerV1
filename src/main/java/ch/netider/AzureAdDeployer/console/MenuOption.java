@@ -10,6 +10,12 @@ public abstract class MenuOption {
         this.name = name;
     }
 
+    public MenuOption(String option, String name, String description) {
+        this.option = option;
+        this.name = name;
+        this.description = description;
+    }
+
     public String getOption() {
         return this.option;
     }
@@ -18,7 +24,7 @@ public abstract class MenuOption {
 
     @Override
     public String toString() {
-        return "[" + this.option + "] - " + this.name;
+        return "\t" + this.option + ".  " + this.name;
     }
 
 }

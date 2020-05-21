@@ -47,7 +47,7 @@ public class Menu {
                 }
             }
         } catch (java.util.NoSuchElementException ex) {
-            //ex.printStackTrace();
+            ex.printStackTrace();
         }
     }
 
@@ -56,15 +56,12 @@ public class Menu {
         CliGui cliGui1 = new CliGui();
         cliGui1.start();
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("------------------------------" + "\n");
-        stringBuilder.append(this.name).append(":" + "\n");
-        stringBuilder.append("------------------------------" + "\n");
+        stringBuilder.append(this.name).append("\n\n");
         for (MenuOption menuOption : menuOptions) {
             stringBuilder.append(menuOption).append("\n");
         }
-        stringBuilder.append("\n");
-        stringBuilder.append("[" + EXIT + "] - exit" + "\n");
-        stringBuilder.append("------------------------------");
+        stringBuilder.append("\t" + EXIT + ".  Exit\n\n");
+        stringBuilder.append("\tSelect Menu Number [" + EXIT + "-" + menuOptions.size() + "]");
         return stringBuilder.toString();
     }
 }

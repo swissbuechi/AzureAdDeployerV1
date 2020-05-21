@@ -3,7 +3,10 @@ package ch.netider.AzureAdDeployer.console;
 import java.io.IOException;
 
 public class CliGui {
-    public static void clearConsole() {
+    private static final String VERSION = "0.1";
+
+    //Clear CLI
+    private static void clearConsole() {
         try {
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
         } catch (IOException | InterruptedException ex) {
@@ -11,9 +14,10 @@ public class CliGui {
         }
     }
 
+    //Display Application information
     public void start() {
         clearConsole();
         System.out.println(
-                "\n" + "AzureAdDeployer 0.1" + "\n");
+                "\n" + "AzureAdDeployer " + VERSION + " by Netider.ch\n");
     }
 }
