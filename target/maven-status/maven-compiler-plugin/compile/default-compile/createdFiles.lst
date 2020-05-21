@@ -1,3 +1,14 @@
+ch\netider\AzureAdDeployer\console\MenuStructure$3.class
 ch\netider\AzureAdDeployer\console\Menu.class
+ch\netider\AzureAdDeployer\console\CliGui.class
+ch\netider\AzureAdDeployer\AzureAdDeployerApplication.class
+ch\netider\AzureAdDeployer\session\PsSession.class
+ch\netider\AzureAdDeployer\console\MenuStructure$4.class
+ch\netider\AzureAdDeployer\console\MenuOption.class
+ch\netider\AzureAdDeployer\console\MenuStructure$1.class
+ch\netider\AzureAdDeployer\session\MsolSession.class
 ch\netider\AzureAdDeployer\console\CliSession$1.class
 ch\netider\AzureAdDeployer\console\CliSession.class
+ch\netider\AzureAdDeployer\console\MenuStructure$2.class
+ch\netider\AzureAdDeployer\console\SessionManager.class
+ch\netider\AzureAdDeployer\console\MenuStructure.class
