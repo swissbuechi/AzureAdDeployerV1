@@ -14,10 +14,10 @@ public class MsolService {
         session.run("Connect-MsolService");
     }
 
-    //public MsolUser getUsers() {
-
-    //String[] userProperties = session.run("Get-MsolUser | fl").split(System.getProperty("line.separator"));
-    //}
+    public MsolUser getUsers() {
+        String[] userProperties = session.run("Get-MsolUser | fl").split(System.getProperty("line.separator"));
+        return null;
+    }
 
 
     public void checkMfa() {
