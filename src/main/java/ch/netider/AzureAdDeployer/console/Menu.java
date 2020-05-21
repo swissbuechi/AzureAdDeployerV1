@@ -26,8 +26,8 @@ public class Menu {
         this.name = name;
     }
 
-    public void addOption(MenuOption menuOption) {
-        this.menuOptions.add(menuOption);
+    public void addOption(MenuOption option) {
+        this.menuOptions.add(option);
     }
 
     public void run() {
@@ -54,14 +54,14 @@ public class Menu {
     @Override
     public String toString() {
         CliGui cliGui1 = new CliGui();
-        cliGui1.start();
+        cliGui1.run();
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(this.name).append("\n\n");
         for (MenuOption menuOption : menuOptions) {
             stringBuilder.append(menuOption).append("\n");
         }
-        stringBuilder.append("\t" + EXIT + ".  Exit\n\n");
-        stringBuilder.append("\tSelect Menu Number [" + EXIT + "-" + menuOptions.size() + "]");
+        stringBuilder.append("    " + EXIT + ".  Exit\n\n");
+        stringBuilder.append("    Select Menu Number [" + EXIT + "-" + menuOptions.size() + "]");
         return stringBuilder.toString();
     }
 }

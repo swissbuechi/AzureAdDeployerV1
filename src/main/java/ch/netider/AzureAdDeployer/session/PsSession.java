@@ -11,15 +11,15 @@ public class PsSession {
 
     private static final AtomicInteger UNIQUE_ID = new AtomicInteger();
 
-    public String name;
-    public int id;
-    public String type = "Ps";
-    public String status;
-    public String input;
-    public String output;
-    public String error;
-    public String rawOutput;
-    public PowerShell powerShell;
+    private final String name;
+    private final int id;
+    private final String type = "Ps";
+    private String status;
+    private String[] input;
+    private String output;
+    private String error;
+    private String rawOutput;
+    private PowerShell powerShell;
 
     public PsSession(String name) {
         this.name = name;
@@ -36,7 +36,7 @@ public class PsSession {
         }
     }
 
-    public String run(String input) {
+    public String run(String... input) {
         if (this.powerShell != null) {
             try {
                 this.input = input;

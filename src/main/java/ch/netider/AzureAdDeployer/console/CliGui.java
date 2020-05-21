@@ -15,7 +15,7 @@ public class CliGui {
     }
 
     //Display Application information
-    public void start() {
+    public void run() {
         clearConsole();
         System.out.println(
                 "\n" + "AzureAdDeployer " + VERSION + " by Netider.ch\n");

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AzureAdDeployer.iml" filepath="$PROJECT_DIR$/AzureAdDeployer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/AzureAdDeployer.iml" filepath="$PROJECT_DIR$/.idea/AzureAdDeployer.iml" />
     </modules>
   </component>
 </project>

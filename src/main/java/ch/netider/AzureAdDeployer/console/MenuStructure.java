@@ -1,6 +1,6 @@
 package ch.netider.AzureAdDeployer.console;
 
-import ch.netider.AzureAdDeployer.session.MsolSession;
+import ch.netider.AzureAdDeployer.service.msol.MsolService;
 import ch.netider.AzureAdDeployer.session.PsSession;
 
 public class MenuStructure {
@@ -19,6 +19,14 @@ public class MenuStructure {
             }
         });
 
+        mainMenu.addOption(new MenuOption("2", "Check MFA") {
+            @Override
+            public void selectOption() {
+                MsolService msolService = new MsolService();
+                msolService.checkMfa();
+            }
+        });
+
         //SessionMenu
         sessionMenu.addOption(new MenuOption("1", "Create new Session") {
             @Override
@@ -27,14 +35,10 @@ public class MenuStructure {
             }
         });
 
+        //NewSessionMenu
         newSessionMenu.addOption(new MenuOption("1", "MsolSession") {
             @Override
             public void selectOption() {
-                MsolSession msolSession = new MsolSession("MsolSession");
-                msolSession.connect();
-                PsSession psSession = new PsSession("PsSession");
-                psSession.open();
-                psSession.run("Connect-MsolService");
             }
         });
 

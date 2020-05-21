@@ -4,8 +4,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class CliSession {
     private static final AtomicInteger UNIQUE_ID = new AtomicInteger();
-    String name;
-    int id;
+    private final String name;
+    private final int id;
 
     public CliSession(String name) {
         this.id = UNIQUE_ID.getAndIncrement();

@@ -1,2 +1,3 @@
 AzureAdDeployer.iml
-/target
+target
+.idea

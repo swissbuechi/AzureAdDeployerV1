@@ -1,9 +1,9 @@
 package ch.netider.AzureAdDeployer.console;
 
 public abstract class MenuOption {
-    public String option;
-    public String name;
-    public String description;
+    private final String option;
+    private final String name;
+    private String description;
 
     public MenuOption(String option, String name) {
         this.option = option;
@@ -16,6 +16,10 @@ public abstract class MenuOption {
         this.description = description;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
     public String getOption() {
         return this.option;
     }
@@ -24,7 +28,7 @@ public abstract class MenuOption {
 
     @Override
     public String toString() {
-        return "\t" + this.option + ".  " + this.name;
+        return "    " + this.option + ".  " + this.name;
     }
 
 }
