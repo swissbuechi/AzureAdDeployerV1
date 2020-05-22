@@ -3,7 +3,7 @@ package ch.netider.AzureAdDeployer.console;
 import java.io.IOException;
 
 public class CliGui {
-    private static final String VERSION = "0.1";
+    private static final String VERSION = "0.2";
 
     //Clear CLI
     private static void clearConsole() {
