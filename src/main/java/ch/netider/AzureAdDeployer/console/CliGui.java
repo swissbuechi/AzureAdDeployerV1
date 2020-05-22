@@ -14,6 +14,16 @@ public class CliGui {
         }
     }
 
+    //Wait for Enter Key
+    public void pressKeyToContinue() {
+        System.out.println("Press Enter key to continue...");
+        try {
+            System.in.read();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
     //Display Application information
     public void run() {
         clearConsole();

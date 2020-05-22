@@ -1,28 +1,46 @@
 package ch.netider.AzureAdDeployer.service.msol;
 
-import ch.netider.AzureAdDeployer.session.PsSession;
+import ch.netider.AzureAdDeployer.console.CliGui;
+import ch.netider.AzureAdDeployer.session.MsolSession;
 
 public class MsolService {
-    private final PsSession session = new PsSession("msolPsSession");
+    private final CliGui cliGui = new CliGui();
+    private final MsolSession session = new MsolSession("msolPsSession");
 
-    public MsolService() {
-        session.open();
-//        if (session.run("Connect-Msol").contains("Connect-MsolService")) {
-//            session.run("Install-Module -Name MsOnline -AllowClobber -Scope AllUsers -Force",
-//                    "Import-Module MsOnline");
-//        }
-        session.run("Connect-MsolService");
+    public void getAllUsers() {
+        session.run("Get-MsolUser -all | select DisplayName,UserPrincipalName");
+        cliGui.pressKeyToContinue();
     }
 
-    public MsolUser getUsers() {
-        String[] userProperties = session.run("Get-MsolUser | fl").split(System.getProperty("line.separator"));
-        return null;
-    }
-
+//    public MsolUser getUsers() {
+//        String[] userProperties = session.run("Get-MsolUser | fl").split(System.getProperty("line.separator"));
+//        return null;
+//    }
 
     public void checkMfa() {
-        System.out.println(session.run("Get-MsolUser -all | select DisplayName,UserPrincipalName," +
+        session.run("Get-MsolUser -all | select DisplayName,UserPrincipalName," +
                 "@{N=\"MFA Status\"; E={ if( $_.StrongAuthenticationRequirements.State -ne $null)" +
-                "{ $_.StrongAuthenticationRequirements.State} else { \"Disabled\"}}}"));
+                "{ $_.StrongAuthenticationRequirements.State} else { \"Disabled\"}}}");
+        cliGui.pressKeyToContinue();
     }
+
+    public void enableMfa(String userPrinzipalName) {
+        session.run("$users = " + "\"" + userPrinzipalName + "\"",
+                "foreach ($user in $users) {",
+                "$st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement",
+                "$st.RelyingParty = \"*\"",
+                "$st.State = \"Enabled\"",
+                "$sta = @($st)",
+                "Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta }");
+        checkMfa();
+    }
+
+    public void disableMfa(String userPrinzipalName) {
+        session.run("$users = " + "\"" + userPrinzipalName + "\"",
+                "foreach ($user in $users) {",
+                "Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements @() }");
+        checkMfa();
+    }
+
 }
+

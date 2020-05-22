@@ -1,7 +1,6 @@
 package ch.netider.AzureAdDeployer.session;
 
 import com.github.tuupertunut.powershelllibjava.PowerShell;
-import com.github.tuupertunut.powershelllibjava.PowerShellExecutionException;
 
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -14,12 +13,12 @@ public class PsSession {
     private final String name;
     private final int id;
     private final String type = "Ps";
-    private String status;
-    private String[] input;
-    private String output;
-    private String error;
-    private String rawOutput;
-    private PowerShell powerShell;
+    public String status = "closed";
+    public String[] input;
+    public String output;
+    public String error;
+    public String rawOutput;
+    public PowerShell powerShell;
 
     public PsSession(String name) {
         this.name = name;
@@ -28,36 +27,13 @@ public class PsSession {
 
     public void open() {
         try {
-            this.powerShell = PowerShell.open();
-            this.status = "open";
+            if (this.status.equals("closed")) {
+                this.powerShell = PowerShell.open();
+                this.status = "open";
+            }
         } catch (IOException ex) {
             ex.printStackTrace();
             this.status = "error";
         }
-    }
-
-    public String run(String... input) {
-        if (this.powerShell != null) {
-            try {
-                this.input = input;
-                this.rawOutput = this.powerShell.executeCommands(input);
-                this.output = this.rawOutput;
-                if (this.output != null) {
-                    return this.output;
-                }
-            } catch (PowerShellExecutionException ex) {
-                //ex.printStackTrace();
-                this.error = rawOutput;
-            } catch (IOException ex) {
-                //ex.printStackTrace();
-                this.error = rawOutput;
-            } catch (NullPointerException ex) {
-                //ex.printStackTrace();
-                this.error = rawOutput;
-            }
-        } else {
-            System.out.println("You first need to Open a Session");
-        }
-        return null;
     }
 }
