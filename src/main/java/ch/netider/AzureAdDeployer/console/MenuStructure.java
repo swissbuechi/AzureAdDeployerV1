@@ -5,7 +5,7 @@ import ch.netider.AzureAdDeployer.service.msol.MsolService;
 
 public class MenuStructure {
 
-    public void start() {
+    public void run() {
 
         final MsolService msolService = new MsolService();
         final MaintenanceService maintenanceService = new MaintenanceService();
