@@ -1,4 +1,7 @@
 package ch.netider.AzureAdDeployer.session;
 
-public class AzSession {
+public class AzSession extends PsSession {
+    public AzSession(String name) {
+        super(name);
+    }
 }
