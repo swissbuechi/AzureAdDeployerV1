@@ -13,7 +13,7 @@ public class MsolSession extends PsSession {
         super(name);
     }
 
-    public void run(String... input) {
+    public String run(String... input) {
         super.open();
         try {
             if (this.status.equals("closed")) {
@@ -25,11 +25,12 @@ public class MsolSession extends PsSession {
             super.rawOutput = super.powerShell.executeCommands(input);
             super.output = super.rawOutput;
             if (super.output != null) {
-                System.out.println(super.output);
+                return super.output;
             }
         } catch (PowerShellExecutionException | IOException | NullPointerException ex) {
             ex.printStackTrace();
             super.error = rawOutput;
         }
+        return null;
     }
 }

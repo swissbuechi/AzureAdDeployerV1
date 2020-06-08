@@ -2,36 +2,51 @@ package ch.netider.AzureAdDeployer.service.msol;
 
 import ch.netider.AzureAdDeployer.console.CliGui;
 import ch.netider.AzureAdDeployer.session.MsolSession;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.List;
 
 public class MsolService {
     private final CliGui cliGui = new CliGui();
     private final MsolSession session = new MsolSession("msolPsSession");
+    private List<MsolUser> msolUsers;
 
     public void getAllUsers() {
-        session.run("Get-MsolUser -all | select DisplayName,UserPrincipalName");
-        cliGui.pressKeyToContinue();
+        Type msolUser = new TypeToken<List<MsolUser>>() {
+        }.getType();
+        msolUsers = new Gson().fromJson(session.run("Get-MsolUser -all | ConvertTo-Json"), msolUser);
     }
 
-//    public MsolUser getUsers() {
-//        String[] userProperties = session.run("Get-MsolUser | fl").split(System.getProperty("line.separator"));
-//        return null;
-//    }
-
     public void checkMfa() {
-        session.run("Get-MsolUser -all | select DisplayName,UserPrincipalName," +
+        System.out.println(session.run("Get-MsolUser -all | select DisplayName,UserPrincipalName," +
                 "@{N=\"MFA Status\"; E={ if( $_.StrongAuthenticationRequirements.State -ne $null)" +
-                "{ $_.StrongAuthenticationRequirements.State} else { \"Disabled\"}}}");
+                "{ $_.StrongAuthenticationRequirements.State} else { \"Disabled\"}}}"));
         cliGui.pressKeyToContinue();
     }
 
     public void enableMfa(String userPrinzipalName) {
         session.run("$users = " + "\"" + userPrinzipalName + "\"",
                 "foreach ($user in $users) {",
+                "if ($user.DisplayName -NotLike \"BreakGlass*\") {",
                 "$st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement",
                 "$st.RelyingParty = \"*\"",
                 "$st.State = \"Enabled\"",
                 "$sta = @($st)",
-                "Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta }");
+                "Set-MsolUser -UserPrincipalName" + "\"" + userPrinzipalName + "\"" + " -StrongAuthenticationRequirements $sta } }");
+        checkMfa();
+    }
+
+    public void enableMfa() {
+        session.run("$users = Get-MsolUser | where {$_.DisplayName -NotLike \"BreakGlass*\"}",
+                "foreach ($user in $users) {",
+                "if ($user.DisplayName -NotLike \"BreakGlass*\") {",
+                "$st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement",
+                "$st.RelyingParty = \"*\"",
+                "$st.State = \"Enabled\"",
+                "$sta = @($st)",
+                "Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta } }");
         checkMfa();
     }
 
@@ -41,6 +56,5 @@ public class MsolService {
                 "Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements @() }");
         checkMfa();
     }
-
 }
 
