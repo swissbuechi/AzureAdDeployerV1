@@ -1,8 +1,6 @@
-AzureAdDeployer.iml
-target
-.idea
 HELP.md
 target/
+dependency-reduced-pom.xml
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**
 !**/src/test/**
@@ -36,3 +34,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### LedControllerAPI ###
+*.log
+*.gz
