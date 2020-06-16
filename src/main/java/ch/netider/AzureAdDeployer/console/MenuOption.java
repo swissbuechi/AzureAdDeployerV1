@@ -30,5 +30,4 @@ public abstract class MenuOption {
     public String toString() {
         return "    " + this.option + ".  " + this.name;
     }
-
 }

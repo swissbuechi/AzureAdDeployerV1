@@ -9,10 +9,11 @@ public class MsolSession extends PsSession {
     private static final String CONNECT = "Connect-MsolService";
     public String status = "closed";
 
-    public MsolSession(String name) {
-        super(name);
+    public MsolSession() {
+        super("MsolSession");
     }
 
+    @Override
     public String run(String... input) {
         super.open();
         try {
@@ -30,7 +31,6 @@ public class MsolSession extends PsSession {
         } catch (PowerShellExecutionException | IOException | NullPointerException ex) {
             ex.printStackTrace();
             super.error = rawOutput;
-        }
-        return null;
+        } return null;
     }
 }

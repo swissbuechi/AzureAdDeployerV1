@@ -10,7 +10,7 @@ import java.util.List;
 
 public class MsolService {
     private final CliGui cliGui = new CliGui();
-    private final MsolSession session = new MsolSession("msolPsSession");
+    private final MsolSession session = new MsolSession();
     private List<MsolUser> msolUsers;
 
     public void getAllUsers() {
@@ -27,33 +27,34 @@ public class MsolService {
     }
 
     public void enableMfa(String userPrinzipalName) {
-        session.run("$users = " + "\"" + userPrinzipalName + "\"",
+        //String.format("$users = \"%s\"  ")
+        System.out.println(session.run("$users = " + "\"" + userPrinzipalName + "\"",
                 "foreach ($user in $users) {",
                 "if ($user.DisplayName -NotLike \"BreakGlass*\") {",
                 "$st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement",
                 "$st.RelyingParty = \"*\"",
                 "$st.State = \"Enabled\"",
                 "$sta = @($st)",
-                "Set-MsolUser -UserPrincipalName" + "\"" + userPrinzipalName + "\"" + " -StrongAuthenticationRequirements $sta } }");
+                "Set-MsolUser -UserPrincipalName" + "\"" + userPrinzipalName + "\"" + " -StrongAuthenticationRequirements $sta } }"));
         checkMfa();
     }
 
     public void enableMfa() {
-        session.run("$users = Get-MsolUser | where {$_.DisplayName -NotLike \"BreakGlass*\"}",
+        System.out.println(session.run("$users = Get-MsolUser | where {$_.DisplayName -NotLike \"BreakGlass*\"}",
                 "foreach ($user in $users) {",
                 "if ($user.DisplayName -NotLike \"BreakGlass*\") {",
                 "$st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement",
                 "$st.RelyingParty = \"*\"",
                 "$st.State = \"Enabled\"",
                 "$sta = @($st)",
-                "Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta } }");
+                "Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta } }"));
         checkMfa();
     }
 
     public void disableMfa(String userPrinzipalName) {
-        session.run("$users = " + "\"" + userPrinzipalName + "\"",
+        System.out.println(session.run("$users = " + "\"" + userPrinzipalName + "\"",
                 "foreach ($user in $users) {",
-                "Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements @() }");
+                "Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements @() }"));
         checkMfa();
     }
 }

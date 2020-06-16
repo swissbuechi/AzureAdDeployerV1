@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.concurrent.atomic.AtomicInteger;
 
 
-public class PsSession {
+public abstract class PsSession {
 
     private static final AtomicInteger UNIQUE_ID = new AtomicInteger();
 
@@ -36,4 +36,6 @@ public class PsSession {
             this.status = "error";
         }
     }
+
+    public abstract String run(String... input);
 }
