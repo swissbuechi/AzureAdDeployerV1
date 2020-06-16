@@ -6,8 +6,8 @@ import java.io.IOException;
 
 public class MaintenanceSession extends PsSession {
 
-    public MaintenanceSession(String name) {
-        super(name);
+    public MaintenanceSession() {
+        super("MaintenanceSession");
     }
 
     public String run(String... input) {

@@ -2,6 +2,7 @@ package ch.netider.AzureAdDeployer.service.msol;
 
 public class MsolUser {
 
+    // Variables in PowerShell start with UpperCase
     private String ObjectId;
     private String DisplayName;
     private String FirstName;

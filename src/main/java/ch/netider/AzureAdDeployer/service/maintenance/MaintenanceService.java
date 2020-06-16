@@ -6,7 +6,7 @@ import ch.netider.AzureAdDeployer.session.MaintenanceSession;
 public class MaintenanceService {
 
     private final CliGui cliGui = new CliGui();
-    private final MaintenanceSession session = new MaintenanceSession("MaintenanceSession");
+    private final MaintenanceSession session = new MaintenanceSession();
 
     public void showModules() {
         session.run("Get-InstalledModule -Name \"MSOnline\"");
