@@ -9,7 +9,7 @@ public class MaintenanceService {
     private final MaintenanceSession session = new MaintenanceSession();
 
     public void showModules() {
-        session.run("Get-InstalledModule -Name \"MSOnline\"");
+        System.out.println(session.run("Get-InstalledModule -Name \"MSOnline\""));
         cliGui.pressKeyToContinue();
     }
 

@@ -12,16 +12,15 @@ public class MenuStructure {
 
         //Menus
         final Menu mainMenu = new Menu("Main Menu");
+        final Menu glassMenu = new Menu(1, "Break Glass Accounts");
         final Menu mfaMenu = new Menu(1, "MFA Manager");
-        final Menu sessionMenu = new Menu(1, "Session Manager");
         final Menu maintenanceMenu = new Menu(1, "Maintenance");
-        final Menu newSessionMenu = new Menu(2, "Create new Session");
 
         //MainMenu
-        mainMenu.addOption(new MenuOption("1", "Session Manager") {
+        mainMenu.addOption(new MenuOption("1", "Break Glass Account Manager") {
             @Override
             public void selectOption() {
-                sessionMenu.run();
+                glassMenu.run();
             }
         });
 
@@ -39,32 +38,54 @@ public class MenuStructure {
             }
         });
 
-        //MfaMenu
-        mfaMenu.addOption(new MenuOption("1", "Check MFA Status") {
+        //GlassMenu
+        glassMenu.addOption(new MenuOption("1", "Create Break Glass Accounts") {
             @Override
             public void selectOption() {
-                msolService.checkMfa();
+                msolService.createBreakGlassAccounts();
             }
         });
 
-        mfaMenu.addOption(new MenuOption("2", "Enable MFA") {
+        glassMenu.addOption(new MenuOption("2", "Show Break Glass Accounts") {
+            @Override
+            public void selectOption() {
+                msolService.showBreakGlassAccounts();
+            }
+        });
+
+        glassMenu.addOption(new MenuOption("3", "Delete Break Glass Accounts") {
+            @Override
+            public void selectOption() {
+                msolService.removeBreakGlassAccounts();
+            }
+        });
+
+        //MfaMenu
+        mfaMenu.addOption(new MenuOption("1", "Show all Users") {
+            @Override
+            public void selectOption() {
+                msolService.showAllUsers();
+            }
+        });
+
+        mfaMenu.addOption(new MenuOption("2", "Enable MFA for specific User") {
             @Override
             public void selectOption() {
                 msolService.enableMfa("raphael.buechi@netider.ch");
             }
         });
 
-        mfaMenu.addOption(new MenuOption("3", "Disable MFA") {
+        mfaMenu.addOption(new MenuOption("3", "Enable MFA for all Users") {
             @Override
             public void selectOption() {
-                msolService.disableMfa("raphael.buechi@netider.ch");
+                msolService.enableMfa();
             }
         });
 
-        mfaMenu.addOption(new MenuOption("4", "Show all Users") {
+        mfaMenu.addOption(new MenuOption("4", "Disable MFA") {
             @Override
             public void selectOption() {
-                msolService.getAllUsers();
+                msolService.disableMfa("raphael.buechi@netider.ch");
             }
         });
 
@@ -87,28 +108,6 @@ public class MenuStructure {
             @Override
             public void selectOption() {
                 maintenanceService.uninstallMsol();
-            }
-        });
-
-
-        //SessionMenu
-        sessionMenu.addOption(new MenuOption("1", "Create new Session") {
-            @Override
-            public void selectOption() {
-                newSessionMenu.run();
-            }
-        });
-
-        //NewSessionMenu
-        newSessionMenu.addOption(new MenuOption("1", "MsolSession") {
-            @Override
-            public void selectOption() {
-            }
-        });
-
-        newSessionMenu.addOption(new MenuOption("2", "AzAd Session") {
-            @Override
-            public void selectOption() {
             }
         });
 

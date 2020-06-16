@@ -41,11 +41,6 @@ public class Menu {
                     return;
                 }
                 final String finalInput = input;
-                menuOptions.parallelStream().forEach(menuOption -> {
-                    if (menuOption.getOption().equalsIgnoreCase(finalInput)) {
-                        menuOption.selectOption();
-                    }
-                });
                 for (MenuOption menuOption : menuOptions) {
                     if (menuOption.getOption().equalsIgnoreCase(input)) {
                         menuOption.selectOption();
