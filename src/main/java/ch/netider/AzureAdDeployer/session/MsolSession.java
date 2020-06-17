@@ -28,9 +28,14 @@ public class MsolSession extends PsSession {
             if (super.output != null) {
                 return super.output;
             }
-        } catch (PowerShellExecutionException | IOException | NullPointerException ex) {
+        } catch (IOException | NullPointerException ex) {
             ex.printStackTrace();
             super.error = rawOutput;
-        } return null;
+        } catch (PowerShellExecutionException e) {
+            if (e.getMessage().contains("You must call the Connect-MsolService cmdlet before calling any other cmdlets")) {
+                run(CONNECT);
+            }
+        }
+        return null;
     }
 }

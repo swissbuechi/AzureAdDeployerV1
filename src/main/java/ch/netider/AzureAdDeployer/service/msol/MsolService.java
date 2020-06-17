@@ -20,45 +20,60 @@ public class MsolService {
     }
 
     public void showAllUsers() {
-        System.out.println(session.run("Get-MsolUser -all"));
+        System.out.println(session.run("Get-MsolUser -all | select DisplayName,UserPrincipalName," +
+                "ObjectId," +
+                "@{N='MFA Status'; E={ if( $_.StrongAuthenticationRequirements.State -ne $null)" +
+                "{ $_.StrongAuthenticationRequirements.State} else { 'Disabled'}}} | ft"));
         cliGui.pressKeyToContinue();
     }
 
     public void checkMfa() {
-        System.out.println(session.run("Get-MsolUser -all | select DisplayName,UserPrincipalName," +
-                "@{N=\"MFA Status\"; E={ if( $_.StrongAuthenticationRequirements.State -ne $null)" +
-                "{ $_.StrongAuthenticationRequirements.State} else { \"Disabled\"}}}"));
+        System.out.println(session.run("Get-MsolUser -all | where {$_.DisplayName -NotLike 'BreakGlass*'}" +
+                " | select DisplayName,UserPrincipalName," +
+                "@{N='MFA Status'; E={ if( $_.StrongAuthenticationRequirements.State -ne $null)" +
+                "{ $_.StrongAuthenticationRequirements.State} else { 'Disabled'}}}"));
         cliGui.pressKeyToContinue();
     }
 
     public void enableMfa(String userPrinzipalName) {
         //String.format("$users = \"%s\"  ")
-        session.run("$users = " + userPrinzipalName,
+        session.run("$users = " + "'" + userPrinzipalName + "'",
                 "foreach ($user in $users) {",
                 "$st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement",
-                "$st.RelyingParty = \"*\"",
-                "$st.State = \"Enabled\"",
+                "$st.RelyingParty = '*'",
+                "$st.State = 'Enabled'",
                 "$sta = @($st)",
-                "Set-MsolUser -UserPrincipalName" + userPrinzipalName + " -StrongAuthenticationRequirements $sta }");
+                "Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta }");
         checkMfa();
     }
 
     public void enableMfa() {
-        session.run("$users = Get-MsolUser | where {$_.DisplayName -NotLike \"BreakGlass*\"}",
-                "foreach ($user in $users) {",
-                "$st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement",
-                "$st.RelyingParty = \"*\"",
-                "$st.State = \"Enabled\"",
-                "$sta = @($st)",
-                "Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta } }");
-        checkMfa();
+        if (cliGui.waitForConfirmation()) {
+            session.run("$users = Get-MsolUser | where {$_.DisplayName -NotLike 'BreakGlass*'}",
+                    "foreach ($user in $users) {",
+                    "$st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement",
+                    "$st.RelyingParty = '*'",
+                    "$st.State = 'Enabled'",
+                    "$sta = @($st)",
+                    "Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta }");
+            checkMfa();
+        }
     }
 
     public void disableMfa(String userPrinzipalName) {
-        session.run("$users = " + "\"" + userPrinzipalName + "\"",
+        session.run("$users = " + "'" + userPrinzipalName + "'",
                 "foreach ($user in $users) {",
                 "Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements @() }");
         checkMfa();
+    }
+
+    public void disableMfa() {
+        if (cliGui.waitForConfirmation()) {
+            session.run("$users = Get-MsolUser -all | Where-Object {$_.DisplayName -Like 'BreakGlass*'}",
+                    "foreach ($user in $users) {",
+                    "Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements @() }");
+            checkMfa();
+        }
     }
 
     public void createBreakGlassAccounts() {
@@ -79,18 +94,19 @@ public class MsolService {
                 "$UPN2=\"$name2@$MsDomain\"",
                 "$DisplayName2=\"BreakGlass $name2\"",
                 "New-MsolUser -UserPrincipalName $UPN2 -DisplayName $DisplayName2 -ForceChangePassword $false -StrongPasswordRequired $true -Password $pass2 -PasswordNeverExpires $true",
-                "Add-MsolRoleMember -RoleMemberEmailAddress $UPN2 -RoleName \"Company Administrator\""));
+                "Add-MsolRoleMember -RoleMemberEmailAddress $UPN2 -RoleName \"Company Administrator\" }"));
         cliGui.pressKeyToContinue();
     }
 
     public void showBreakGlassAccounts() {
-        System.out.println(session.run("Get-MsolUser | Where-Object {$_.DisplayName -Like \"BreakGlass*\"}"));
+        System.out.println(session.run("Get-MsolUser | Where-Object {$_.DisplayName -Like 'BreakGlass*'}"));
         cliGui.pressKeyToContinue();
     }
 
     public void removeBreakGlassAccounts() {
-        session.run("Get-MsolUser | Where-Object {$_.DisplayName -Like \"BreakGlass*\"} | Remove-MsolUser -Force");
-        showAllUsers();
-        cliGui.pressKeyToContinue();
+        if (cliGui.waitForConfirmation()) {
+            session.run("Get-MsolUser | Where-Object {$_.DisplayName -Like 'BreakGlass*'} | Remove-MsolUser -Force");
+            cliGui.pressKeyToContinue();
+        }
     }
 }

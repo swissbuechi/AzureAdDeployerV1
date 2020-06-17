@@ -1,4 +1,5 @@
 HELP.md
+AzureAdDeployer.exe
 target/
 dependency-reduced-pom.xml
 !.mvn/wrapper/maven-wrapper.jar

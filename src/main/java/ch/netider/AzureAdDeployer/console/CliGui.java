@@ -28,6 +28,23 @@ public class CliGui {
         }
     }
 
+    //Wait for confirmation
+    public boolean waitForConfirmation() {
+        System.out.println("Are you sure you want to continue?");
+        System.out.println("y = Yes or n = No");
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            String input = scanner.nextLine();
+            if (input.equalsIgnoreCase("y")) {
+                return true;
+            }
+            if (input.equalsIgnoreCase("n")) {
+                return false;
+            }
+        }
+    }
+
+    //Input Users
     public List<String> input() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter the UserPrinzipleNames (Comma separated): ");
