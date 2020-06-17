@@ -21,17 +21,15 @@ public class MsolService {
 
     public void showAllUsers() {
         System.out.println(session.run("Get-MsolUser -all | select DisplayName,UserPrincipalName," +
-                "ObjectId," +
                 "@{N='MFA Status'; E={ if( $_.StrongAuthenticationRequirements.State -ne $null)" +
                 "{ $_.StrongAuthenticationRequirements.State} else { 'Disabled'}}} | ft"));
         cliGui.pressKeyToContinue();
     }
 
     public void checkMfa() {
-        System.out.println(session.run("Get-MsolUser -all | where {$_.DisplayName -NotLike 'BreakGlass*'}" +
-                " | select DisplayName,UserPrincipalName," +
-                "@{N='MFA Status'; E={ if( $_.StrongAuthenticationRequirements.State -ne $null)" +
-                "{ $_.StrongAuthenticationRequirements.State} else { 'Disabled'}}}"));
+        System.out.println(session.run("Get-MsolUser -all | where {$_.DisplayName -NotLike \"BreakGlass*\"} | select DisplayName,UserPrincipalName," +
+                "@{N=\"MFA Status\"; E={ if( $_.StrongAuthenticationRequirements.State -ne $null)" +
+                "{ $_.StrongAuthenticationRequirements.State} else { \"Disabled\"}}}"));
         cliGui.pressKeyToContinue();
     }
 
@@ -49,10 +47,10 @@ public class MsolService {
 
     public void enableMfa() {
         if (cliGui.waitForConfirmation()) {
-            session.run("$users = Get-MsolUser | where {$_.DisplayName -NotLike 'BreakGlass*'}",
+            session.run("$users = Get-MsolUser | where {$_.DisplayName -NotLike \"BreakGlass*\"} | select -Expand UserPrincipalName",
                     "foreach ($user in $users) {",
                     "$st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement",
-                    "$st.RelyingParty = '*'",
+                    "$st.RelyingParty = \"*\"",
                     "$st.State = 'Enabled'",
                     "$sta = @($st)",
                     "Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta }");
@@ -69,9 +67,7 @@ public class MsolService {
 
     public void disableMfa() {
         if (cliGui.waitForConfirmation()) {
-            session.run("$users = Get-MsolUser -all | Where-Object {$_.DisplayName -Like 'BreakGlass*'}",
-                    "foreach ($user in $users) {",
-                    "Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements @() }");
+            session.run("Get-MsolUser -all | Set-MsolUser -StrongAuthenticationRequirements @()");
             checkMfa();
         }
     }

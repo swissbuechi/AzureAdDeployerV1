@@ -86,28 +86,14 @@ public class MenuStructure {
             }
         });
 
-        mfaMenu.addOption(new MenuOption("2", "Enable MFA for specific User") {
-            @Override
-            public void selectOption() {
-                msolService.enableMfa("raphael.buechi@netider.ch");
-            }
-        });
-
-        mfaMenu.addOption(new MenuOption("3", "Enable MFA for all Users") {
+        mfaMenu.addOption(new MenuOption("2", "Enable MFA for all Users") {
             @Override
             public void selectOption() {
                 msolService.enableMfa();
             }
         });
 
-        mfaMenu.addOption(new MenuOption("4", "Disable MFA for specific User") {
-            @Override
-            public void selectOption() {
-                msolService.disableMfa("raphael.buechi@netider.ch");
-            }
-        });
-
-        mfaMenu.addOption(new MenuOption("5", "Disable MFA for all Users") {
+        mfaMenu.addOption(new MenuOption("3", "Disable MFA for all Users") {
             @Override
             public void selectOption() {
                 msolService.disableMfa();

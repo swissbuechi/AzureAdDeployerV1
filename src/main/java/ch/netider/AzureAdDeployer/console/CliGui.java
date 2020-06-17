@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CliGui {
-    private static final String VERSION = "0.2";
+    private static final String VERSION = "1.0";
 
     //Clear CLI
     private static void clearConsole() {

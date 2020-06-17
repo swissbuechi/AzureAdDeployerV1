@@ -6,7 +6,7 @@
 
     <groupId>groupId</groupId>
     <artifactId>AzureAdDeployer</artifactId>
-    <version>0.2</version>
+    <version>1.0</version>
 
     <build>
         <plugins>
@@ -22,6 +22,7 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
+                            <finalName>AzureAdDeployer</finalName>
                             <transformers>
                                 <transformer
                                         implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
