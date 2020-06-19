@@ -26,6 +26,10 @@ public class Menu {
         this.name = name;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
     public void addOption(MenuOption option) {
         this.menuOptions.add(option);
     }

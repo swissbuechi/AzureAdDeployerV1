@@ -5,11 +5,10 @@ import ch.netider.AzureAdDeployer.service.msol.MsolService;
 
 public class MenuStructure {
 
+    private final MsolService msolService = new MsolService();
+    private final MaintenanceService maintenanceService = new MaintenanceService();
+
     public void run() {
-
-        final MsolService msolService = new MsolService();
-        final MaintenanceService maintenanceService = new MaintenanceService();
-
         //Menus
         final Menu mainMenu = new Menu("Main Menu");
         final Menu userMenu = new Menu("Global User Manager");
@@ -18,7 +17,6 @@ public class MenuStructure {
         final Menu maintenanceMenu = new Menu(1, "Maintenance");
 
         //MainMenu
-
         mainMenu.addOption(new MenuOption("1", "Global User Manager") {
             @Override
             public void selectOption() {
@@ -48,7 +46,6 @@ public class MenuStructure {
         });
 
         //UserMenu
-
         userMenu.addOption(new MenuOption("1", "Show All Users") {
             @Override
             public void selectOption() {

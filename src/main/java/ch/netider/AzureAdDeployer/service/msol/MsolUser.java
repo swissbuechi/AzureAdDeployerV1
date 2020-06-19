@@ -15,7 +15,6 @@ public class MsolUser {
     private String[] ProxyAddresses;
     private String MobilePhone;
     private String[] Licenses;
-    private String[] StrongAuthenticationRequirements;
     private String MfaStatus;
 
 }

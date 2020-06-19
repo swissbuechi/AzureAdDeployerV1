@@ -1,10 +1,10 @@
 package ch.netider.AzureAdDeployer;
 
-import ch.netider.AzureAdDeployer.console.CliSession;
+import ch.netider.AzureAdDeployer.console.SessionManager;
 
 public class AzureAdDeployerApplication {
     public static void main(String[] args) {
-        CliSession cliSession1 = new CliSession("cliSession1");
-        cliSession1.run();
+        SessionManager sessionManager = new SessionManager("Session Manager");
+        sessionManager.run();
     }
 }

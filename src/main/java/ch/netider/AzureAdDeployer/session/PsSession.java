@@ -12,17 +12,56 @@ public abstract class PsSession {
 
     private final String name;
     private final int id;
-    private final String type = "Ps";
-    public String status = "closed";
-    public String[] input;
-    public String output;
-    public String error;
-    public String rawOutput;
+    private String status = "closed";
+    private String[] input;
+    private String output;
+    private String error;
+    private String rawOutput;
     public PowerShell powerShell;
 
     public PsSession(String name) {
         this.name = name;
         this.id = UNIQUE_ID.getAndIncrement();
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String[] getInput() {
+        return input;
+    }
+
+    public void setInput(String[] input) {
+        this.input = input;
+    }
+
+    public String getOutput() {
+        return output;
+    }
+
+    public void setOutput(String output) {
+        this.output = output;
+    }
+
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
+    }
+
+    public String getRawOutput() {
+        return rawOutput;
+    }
+
+    public void setRawOutput(String rawOutput) {
+        this.rawOutput = rawOutput;
     }
 
     public void open() {
