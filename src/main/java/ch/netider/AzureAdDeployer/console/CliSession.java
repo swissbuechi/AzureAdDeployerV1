@@ -2,6 +2,9 @@ package ch.netider.AzureAdDeployer.console;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * Manage multiple CliSessions
+ */
 public class CliSession {
     private static final AtomicInteger UNIQUE_ID = new AtomicInteger();
     private final String name;
@@ -12,12 +15,18 @@ public class CliSession {
         this.name = name;
     }
 
+    /**
+     * Run CliSession
+     */
     public void run() {
         MenuStructure menuStructure = new MenuStructure();
         menuStructure.run();
         close();
     }
 
+    /**
+     * Close CliSession
+     */
     private void close() {
         Runtime.getRuntime().addShutdownHook(new Thread() {
             public void run() {

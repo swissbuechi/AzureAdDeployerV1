@@ -6,10 +6,15 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * CliGui for user interaction
+ */
 public class CliGui {
     private static final String VERSION = "1.0";
 
-    //Clear CLI
+    /**
+     * Clear CLI
+     */
     private static void clearConsole() {
         try {
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
@@ -18,7 +23,9 @@ public class CliGui {
         }
     }
 
-    //Wait for Enter Key
+    /**
+     * Wait for Enter Key
+     */
     public void pressKeyToContinue() {
         System.out.println("Press Enter key to continue...");
         try {
@@ -28,7 +35,9 @@ public class CliGui {
         }
     }
 
-    //Wait for confirmation
+    /**
+     * Wait for confirmation
+     */
     public boolean waitForConfirmation() {
         System.out.println("Are you sure you want to continue?");
         System.out.println("y = Yes or n = No");
@@ -44,7 +53,20 @@ public class CliGui {
         }
     }
 
-    //Input Users
+    /**
+     * Display Application information
+     */
+    public void run() {
+        clearConsole();
+        System.out.println(
+                "\n" + "AzureAdDeployer " + VERSION + " by netider.ch\n");
+    }
+
+    /**
+     * Class not used jet!
+     * Input Users
+     * @return users
+     */
     public List<String> input() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter the UserPrinzipleNames (Comma separated): ");
@@ -53,12 +75,5 @@ public class CliGui {
             System.out.println(user);
         }
         return users;
-    }
-
-    //Display Application information
-    public void run() {
-        clearConsole();
-        System.out.println(
-                "\n" + "AzureAdDeployer " + VERSION + " by Netider.ch\n");
     }
 }

@@ -1,5 +1,8 @@
 package ch.netider.AzureAdDeployer.console;
 
+/**
+ * CLI Menu Option
+ */
 public abstract class MenuOption {
     private final String option;
     private final String name;
@@ -26,6 +29,10 @@ public abstract class MenuOption {
 
     public abstract void selectOption();
 
+    /**
+     * Print the MenuOption
+     * @return MenuOption
+     */
     @Override
     public String toString() {
         return "    " + this.option + ".  " + this.name;

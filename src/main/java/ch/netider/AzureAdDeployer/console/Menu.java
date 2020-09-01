@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * CLI Menu
+ */
 public class Menu {
     private static final String EXIT = "0";
     private final String name;
@@ -34,6 +37,9 @@ public class Menu {
         this.menuOptions.add(option);
     }
 
+    /**
+     * Run the Menu
+     */
     public void run() {
         try {
             String input;
@@ -56,6 +62,10 @@ public class Menu {
         }
     }
 
+    /**
+     * Print the Menu
+     * @return Menu structure
+     */
     @Override
     public String toString() {
         CliGui cliGui1 = new CliGui();

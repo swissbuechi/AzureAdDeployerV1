@@ -1,11 +1,12 @@
 package ch.netider.AzureAdDeployer.session;
 
 import com.github.tuupertunut.powershelllibjava.PowerShell;
-
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicInteger;
 
-
+/**
+ * PowerShell Session
+ */
 public abstract class PsSession {
 
     private static final AtomicInteger UNIQUE_ID = new AtomicInteger();
@@ -64,6 +65,9 @@ public abstract class PsSession {
         this.rawOutput = rawOutput;
     }
 
+    /**
+     * Open a PowerShell Session
+     */
     public void open() {
         try {
             if (this.status.equals("closed")) {
@@ -76,5 +80,10 @@ public abstract class PsSession {
         }
     }
 
+    /**
+     * Run a PowerShell Session
+     * @param input PowerShell Befehl eingabe
+     * @return PowerShell Befehl ausgabe
+     */
     public abstract String run(String... input);
 }
