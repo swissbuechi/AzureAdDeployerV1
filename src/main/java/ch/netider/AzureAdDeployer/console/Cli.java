@@ -9,7 +9,7 @@ import java.util.Scanner;
 /**
  * CliGui for user interaction
  */
-public class CliGui {
+public class Cli {
     private static final String VERSION = "1.0";
 
     /**

@@ -1,6 +1,6 @@
 package ch.netider.AzureAdDeployer.service.msol;
 
-import ch.netider.AzureAdDeployer.console.CliGui;
+import ch.netider.AzureAdDeployer.console.Cli;
 import ch.netider.AzureAdDeployer.session.MsolSession;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -9,7 +9,7 @@ import java.lang.reflect.Type;
 import java.util.List;
 
 public class MsolService {
-    private final CliGui cliGui = new CliGui();
+    private final Cli cli = new Cli();
     private final MsolSession session = new MsolSession();
     private List<MsolUser> msolUsers;
 
@@ -23,14 +23,14 @@ public class MsolService {
         System.out.println(session.run("Get-MsolUser -all | select DisplayName,UserPrincipalName," +
                 "@{N='MFA Status'; E={ if( $_.StrongAuthenticationRequirements.State -ne $null)" +
                 "{ $_.StrongAuthenticationRequirements.State} else { 'Disabled'}}} | ft"));
-        cliGui.pressKeyToContinue();
+        cli.pressKeyToContinue();
     }
 
     public void checkMfa() {
         System.out.println(session.run("Get-MsolUser -all | where {$_.DisplayName -NotLike \"BreakGlass*\"} | select DisplayName,UserPrincipalName," +
                 "@{N=\"MFA Status\"; E={ if( $_.StrongAuthenticationRequirements.State -ne $null)" +
                 "{ $_.StrongAuthenticationRequirements.State} else { \"Disabled\"}}}"));
-        cliGui.pressKeyToContinue();
+        cli.pressKeyToContinue();
     }
 
     public void enableMfa(String userPrinzipalName) {
@@ -46,7 +46,7 @@ public class MsolService {
     }
 
     public void enableMfa() {
-        if (cliGui.waitForConfirmation()) {
+        if (cli.waitForConfirmation()) {
             session.run("$users = Get-MsolUser | where {$_.DisplayName -NotLike \"BreakGlass*\"} | select -Expand UserPrincipalName",
                     "foreach ($user in $users) {",
                     "$st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement",
@@ -66,7 +66,7 @@ public class MsolService {
     }
 
     public void disableMfa() {
-        if (cliGui.waitForConfirmation()) {
+        if (cli.waitForConfirmation()) {
             session.run("Get-MsolUser -all | Set-MsolUser -StrongAuthenticationRequirements @()");
             checkMfa();
         }
@@ -91,18 +91,18 @@ public class MsolService {
                 "$DisplayName2=\"BreakGlass $name2\"",
                 "New-MsolUser -UserPrincipalName $UPN2 -DisplayName $DisplayName2 -ForceChangePassword $false -StrongPasswordRequired $true -Password $pass2 -PasswordNeverExpires $true",
                 "Add-MsolRoleMember -RoleMemberEmailAddress $UPN2 -RoleName \"Company Administrator\" }"));
-        cliGui.pressKeyToContinue();
+        cli.pressKeyToContinue();
     }
 
     public void showBreakGlassAccounts() {
         System.out.println(session.run("Get-MsolUser | Where-Object {$_.DisplayName -Like 'BreakGlass*'}"));
-        cliGui.pressKeyToContinue();
+        cli.pressKeyToContinue();
     }
 
     public void removeBreakGlassAccounts() {
-        if (cliGui.waitForConfirmation()) {
+        if (cli.waitForConfirmation()) {
             session.run("Get-MsolUser | Where-Object {$_.DisplayName -Like 'BreakGlass*'} | Remove-MsolUser -Force");
-            cliGui.pressKeyToContinue();
+            cli.pressKeyToContinue();
         }
     }
 }

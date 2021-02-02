@@ -18,7 +18,7 @@ public class CliSession {
     /**
      * Run CliSession
      */
-    public void run() {
+    public void start() {
         MenuStructure menuStructure = new MenuStructure();
         menuStructure.run();
         close();

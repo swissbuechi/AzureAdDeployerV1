@@ -1,28 +1,28 @@
 package ch.netider.AzureAdDeployer.service.maintenance;
 
-import ch.netider.AzureAdDeployer.console.CliGui;
+import ch.netider.AzureAdDeployer.console.Cli;
 import ch.netider.AzureAdDeployer.session.MaintenanceSession;
 
 public class MaintenanceService {
 
-    private final CliGui cliGui = new CliGui();
+    private final Cli cli = new Cli();
     private final MaintenanceSession session = new MaintenanceSession();
 
     public void showModules() {
         System.out.println(session.run("Get-InstalledModule -Name \"MSOnline\""));
-        cliGui.pressKeyToContinue();
+        cli.pressKeyToContinue();
     }
 
     public void installMsol() {
         session.run("Install-Module -Name MsOnline -AllowClobber -Scope AllUsers -Force",
                 "Import-Module MsOnline");
         showModules();
-        cliGui.pressKeyToContinue();
+        cli.pressKeyToContinue();
     }
 
     public void uninstallMsol() {
         session.run("Uninstall-Module -Name MsOnline -Force");
         showModules();
-        cliGui.pressKeyToContinue();
+        cli.pressKeyToContinue();
     }
 }

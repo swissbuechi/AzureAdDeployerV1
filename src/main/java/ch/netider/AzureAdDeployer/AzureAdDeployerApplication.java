@@ -1,10 +1,16 @@
 package ch.netider.AzureAdDeployer;
 
-import ch.netider.AzureAdDeployer.console.SessionManager;
+import ch.netider.AzureAdDeployer.gui.MainGui;
 
 public class AzureAdDeployerApplication {
+
     public static void main(String[] args) {
-        SessionManager sessionManager = new SessionManager("Session Manager");
-        sessionManager.run();
+        start();
     }
+
+    private static void start() {
+        MainGui mainGui = new MainGui();
+        mainGui.show();
+    }
+
 }

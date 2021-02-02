@@ -68,8 +68,8 @@ public class Menu {
      */
     @Override
     public String toString() {
-        CliGui cliGui1 = new CliGui();
-        cliGui1.run();
+        Cli cli1 = new Cli();
+        cli1.run();
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(this.name).append("\n\n");
         for (MenuOption menuOption : menuOptions) {

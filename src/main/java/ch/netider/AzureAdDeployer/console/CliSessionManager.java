@@ -3,11 +3,11 @@ package ch.netider.AzureAdDeployer.console;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SessionManager {
+public class CliSessionManager {
     private final String name;
     private final List<CliSession> sessions = new ArrayList<>();
 
-    public SessionManager(String name) {
+    public CliSessionManager(String name) {
         this.name = name;
     }
 
@@ -17,6 +17,6 @@ public class SessionManager {
 
     public void run() {
         createSession("Cli Session 1");
-        sessions.get(0).run();
+        sessions.get(0).start();
     }
 }

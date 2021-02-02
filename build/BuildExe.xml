@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch4jConfig>
   <dontWrapJar>false</dontWrapJar>
-  <headerType>console</headerType>
+  <headerType>gui</headerType>
   <jar>C:\Users\rapha\Repos\AzureAdDeployer\target\AzureAdDeployer.jar</jar>
   <outfile>C:\Users\rapha\repos\AzureAdDeployer\AzureAdDeployer.exe</outfile>
   <errTitle></errTitle>
@@ -11,9 +11,9 @@
   <downloadUrl>http://java.com/download</downloadUrl>
   <supportUrl></supportUrl>
   <stayAlive>false</stayAlive>
-  <restartOnCrash>false</restartOnCrash>
+  <restartOnCrash>true</restartOnCrash>
   <manifest>C:\Users\rapha\Repos\AzureAdDeployer\build\AzureAdDeployer.manifest</manifest>
-  <icon>C:\Users\rapha\Repos\AzureAdDeployer\build\AzureAdDeployer.ico</icon>
+  <icon>C:\Users\rapha\Repos\AzureAdDeployer\build\azure.ico</icon>
   <jre>
     <path>C:\Program Files\Java\jdk1.8.0_251\bin</path>
     <bundledJre64Bit>true</bundledJre64Bit>
