@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import javafx.geometry.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-
 <BorderPane fx:id="mainPane" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.netider.AzureAdDeployer.gui.controller.DashboardController">
     <top>
         <MenuBar fx:id="topMenu" style="-fx-background-color: #1c313a;" BorderPane.alignment="CENTER">
@@ -39,7 +38,7 @@
                                     <graphic>
                                         <ImageView fitHeight="46.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../Images/dashboard.png" />
+                                                <Image url="@../images/dashboard.png"/>
                                             </image>
                                         </ImageView>
                                     </graphic>
@@ -51,7 +50,7 @@
                                     <graphic>
                                         <ImageView fitHeight="46.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../Images/settings.png" />
+                                                <Image url="@../images/settings.png"/>
                                             </image>
                                         </ImageView>
                                     </graphic>
@@ -63,7 +62,7 @@
                                     <graphic>
                                         <ImageView fitHeight="46.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../Images/console.png" />
+                                                <Image url="@../images/console.png"/>
                                             </image>
                                         </ImageView>
                                     </graphic>

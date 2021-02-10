@@ -15,7 +15,7 @@
                 <Label fx:id="author" alignment="CENTER" prefHeight="17.0" prefWidth="218.0" text="Author"/>
                 <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../Images/azure.png"/>
+                        <Image url="@../images/azure.png"/>
                     </image>
                 </ImageView>
             </children>

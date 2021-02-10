@@ -15,12 +15,12 @@
   <manifest>C:\Users\rapha\Repos\AzureAdDeployer\build\AzureAdDeployer.manifest</manifest>
   <icon>C:\Users\rapha\Repos\AzureAdDeployer\build\azure.ico</icon>
   <jre>
-    <path>C:\Program Files\Java\jdk1.8.0_251\bin</path>
-    <bundledJre64Bit>true</bundledJre64Bit>
-    <bundledJreAsFallback>false</bundledJreAsFallback>
-    <minVersion>1.8.0_111</minVersion>
-    <maxVersion>1.9.0</maxVersion>
-    <jdkPreference>preferJre</jdkPreference>
-    <runtimeBits>64/32</runtimeBits>
+      <path>C:\Program Files\BellSoft\LibericaJRE-11-Full</path>
+      <bundledJre64Bit>true</bundledJre64Bit>
+      <bundledJreAsFallback>false</bundledJreAsFallback>
+      <minVersion></minVersion>
+      <maxVersion></maxVersion>
+      <jdkPreference>jdkOnly</jdkPreference>
+      <runtimeBits>64/32</runtimeBits>
   </jre>
 </launch4jConfig>
