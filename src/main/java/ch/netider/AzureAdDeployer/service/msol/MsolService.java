@@ -19,11 +19,10 @@ public class MsolService {
         msolUsers = new Gson().fromJson(session.run("Get-MsolUser -all | ConvertTo-Json"), msolUser);
     }
 
-    public void showAllUsers() {
-        System.out.println(session.run("Get-MsolUser -all | select DisplayName,UserPrincipalName," +
+    public String showAllUsers() {
+        return session.run("Get-MsolUser -all | select DisplayName,UserPrincipalName," +
                 "@{N='MFA Status'; E={ if( $_.StrongAuthenticationRequirements.State -ne $null)" +
-                "{ $_.StrongAuthenticationRequirements.State} else { 'Disabled'}}} | ft"));
-        cli.pressKeyToContinue();
+                "{ $_.StrongAuthenticationRequirements.State} else { 'Disabled'}}} | ft");
     }
 
     public void checkMfa() {

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.netider.AzureAdDeployer.gui.controller.SettingsController">
+   <children>
+      <VBox layoutX="5.0" layoutY="20.0" AnchorPane.bottomAnchor="316.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+         <children>
+            <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="195.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="25.0" prefWidth="200.0" text="Maintenance" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font></Label>
+                  <JFXButton alignment="CENTER" buttonType="RAISED" mnemonicParsing="false" onAction="#showInstalledModulesButton" prefHeight="37.0" prefWidth="201.0" text="Show installed Modules">
+                     <font>
+                        <Font size="16.0" />
+                     </font></JFXButton>
+                  <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="10.0" layoutY="35.0" mnemonicParsing="false" onAction="#installMsOnButton" prefHeight="37.0" prefWidth="201.0" text="Install / Update MS-On">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="10.0" layoutY="72.0" mnemonicParsing="false" onAction="#uninstallMsOnButton" prefHeight="37.0" prefWidth="201.0" text="Uninstall MS-On">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+      <TextArea fx:id="mainOutput" editable="false" layoutX="23.0" layoutY="408.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="200.0" />
+   </children>
+</AnchorPane>

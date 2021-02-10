@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ch.netider.AzureAdDeployer.gui.controller.WelcomeController">
+    <HBox alignment="CENTER">
+        <VBox layoutX="190.0" layoutY="102.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0"
+              AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+            <children>
+                <Label fx:id="appName" alignment="CENTER" prefHeight="17.0" prefWidth="218.0" text="App"
+                       textAlignment="CENTER"/>
+                <Label fx:id="author" alignment="CENTER" prefHeight="17.0" prefWidth="218.0" text="Author"/>
+                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../Images/azure.png"/>
+                    </image>
+                </ImageView>
+            </children>
+        </VBox>
+    </HBox>
+</VBox>

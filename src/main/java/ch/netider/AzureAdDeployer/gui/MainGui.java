@@ -1,32 +1,33 @@
 package ch.netider.AzureAdDeployer.gui;
 
-import ch.netider.AzureAdDeployer.gui.view.menu.MenuBar;
+import ch.netider.AzureAdDeployer.config.AppConfig;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class MainGui extends Application {
+    double x, y = 0;
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        MenuBar menuBar = new MenuBar();
-        buildMainView(primaryStage, menuBar);
+        buildMainView(primaryStage);
     }
 
     public void show() {
         launch();
     }
 
-    private void buildMainView(Stage primaryStage, MenuBar menuBar) throws IOException {
-        AnchorPane mainView = FXMLLoader.load(getClass().getResource("/fxml/mainMenu.fxml"));
-        menuBar.setLeft(mainView);
-        Scene scene = new Scene(menuBar, 1600, 850);
-        scene.getStylesheets().add("stylesheet.css");
-        primaryStage.setTitle("AzureAdDeployer");
+    private void buildMainView(Stage primaryStage) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/dashboard.fxml"));
+        primaryStage.setTitle(AppConfig.getAppName());
+        primaryStage.setMinWidth(400);
+        primaryStage.setMinHeight(300);
+        Scene scene = new Scene(root, 1600, 800);
+        scene.getStylesheets().add("css/stylesheet.css");
         primaryStage.setScene(scene);
         primaryStage.show();
     }

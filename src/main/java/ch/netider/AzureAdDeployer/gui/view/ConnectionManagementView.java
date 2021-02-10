@@ -1,8 +1,7 @@
 //package ch.netider.AzureAdDeployer.gui.view;
 //
-//import ch.swe.privat.model.environment.Permission;
-//import ch.swe.privat.model.environment.Player;
-//import ch.swe.privat.services.DatabaseService;
+//import ch.netider.AzureAdDeployer.gui.model.Connection;
+//import ch.netider.AzureAdDeployer.service.FileService;
 //import javafx.beans.property.SimpleBooleanProperty;
 //import javafx.beans.value.ObservableValue;
 //import javafx.collections.FXCollections;
@@ -20,8 +19,8 @@
 //public class ConnectionManagementView extends GridPane {
 //
 //
-//    private ObservableList<Player> playerObservableList;
-//    private DatabaseService databaseService;
+//    private ObservableList<Connection> playerObservableList;
+//    private FileService databaseService;
 //
 //    private HashMap<String, Integer> permissions;
 //
@@ -35,11 +34,8 @@
 //    private Integer selectedUserID;
 //
 //    public ConnectionManagementView() {
-//        databaseService = new DatabaseService();
-//        List<Permission> permissionList = databaseService.getAllPermissions();
-//        List<Player> playerList = databaseService.getAllPlayer();
-//
-//        addPermissionsToHashMap(permissionList);
+//        databaseService = new FileService();
+//        List<Connection> playerList = databaseService.loadConnections().getConnections();
 //
 //        createUserTable();
 //        playerObservableList.addAll(playerList);
@@ -49,19 +45,6 @@
 //        setAlignment(Pos.CENTER);
 //        setVgap(10);
 //        setHgap(10);
-//    }
-//
-//    /**
-//     * Macht eine HashMap aus der Liste mit den Berechtigungen. Ist so etwas einfacher die FKID für das Updatestatement
-//     * zu bekommen. In der Combobox soll nämlich nur die Berechtigung ohne ID drinnen stehen.
-//     *
-//     * @param permissionList Liste mit den Berechtigungen.
-//     */
-//    private void addPermissionsToHashMap(List<Permission> permissionList) {
-//        permissions = new HashMap<>();
-//        for (Permission p : permissionList) {
-//            permissions.put(p.getRecht(), p.getPermissionID());
-//        }
 //    }
 //
 //    /**
@@ -90,14 +73,14 @@
 //
 //        TableColumn active = new TableColumn("Ist Aktiv");
 //        // Füllt die Checkboxen --> Kreuzt die Checkboxen an welche den Wert TRUE zugewiesen hätten/haben.
-//        active.setCellValueFactory((Callback<TableColumn.CellDataFeatures<Player, Boolean>, ObservableValue<Boolean>>) param -> {
-//            Player player = param.getValue();
-//            SimpleBooleanProperty simpleBooleanProperty = new SimpleBooleanProperty(player.getActive());
+//        active.setCellValueFactory((Callback<TableColumn.CellDataFeatures<Connection, Boolean>, ObservableValue<Boolean>>) param -> {
+//            Connection connection = param.getValue();
+//            SimpleBooleanProperty simpleBooleanProperty = new SimpleBooleanProperty(connection.getActive());
 //            return simpleBooleanProperty;
 //        });
 //        // formatiert den Inhalt der Zellen (boolean) in eine Checkbox um.
-//        active.setCellFactory((Callback<TableColumn<Player, Boolean>, TableCell<Player, Boolean>>) p -> {
-//            CheckBoxTableCell<Player, Boolean> tableCell = new CheckBoxTableCell<>();
+//        active.setCellFactory((Callback<TableColumn<Connection, Boolean>, TableCell<Connection, Boolean>>) p -> {
+//            CheckBoxTableCell<Connection, Boolean> tableCell = new CheckBoxTableCell<>();
 //            tableCell.setAlignment(Pos.CENTER);
 //            return tableCell;
 //        });
@@ -192,15 +175,15 @@
 //     * @param newSelection Der neue Wert/neue Auswahl
 //     */
 //    private void change(ObservableValue obs, Object oldSelection, Object newSelection) {
-//        Player p = (Player) obs.getValue();
+//        Connection c = (Connection) obs.getValue();
 //
-//        if (p != null) {
-//            selectedUserID = p.getUserID();
+//        if (c != null) {
+//            selectedUserID = c.getID();
 //
-//            cbPermission.setValue(p.getPermission().getRecht());
-//            tfSpielername.setText(p.getPlayerName());
-//            tfLoginname.setText(p.getLoginName());
-//            checkBoxIsActive.setSelected(p.getActive());
+//            cbPermission.setValue(c.getPermission().getRecht());
+//            tfSpielername.setText(c.getPlayerName());
+//            tfLoginname.setText(c.getLoginName());
+//            checkBoxIsActive.setSelected(c.getActive());
 //        } else {
 //            cancel();
 //        }

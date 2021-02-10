@@ -74,7 +74,7 @@ public class MenuBar extends BorderPane {
 
     private void openLoadConnectionsView() throws IOException {
 
-        //Parent root = FXMLLoader.load(getClass().getResource("/fxml/create_connection_form.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("/fxml/create_connection.fxml"));
         //setCenter(root);
     }
 
@@ -87,9 +87,8 @@ public class MenuBar extends BorderPane {
     private void openHelp() {
 
         String text = "Take a look at the Documentation: ";
-        Hyperlink hyperlink = new Hyperlink("https://onenote.com");
         Window owner = getScene().getWindow();
-        new AlertHelper(Alert.AlertType.INFORMATION, owner, "Hilfe", text, hyperlink);
+        new AlertHelper(Alert.AlertType.INFORMATION, owner, "Hilfe", text);
     }
 
     private void openInfo() {

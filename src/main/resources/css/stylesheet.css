@@ -1,7 +1,7 @@
 .root {
-    -fx-accent: #1e74c6;
+    -fx-accent: #008ad7;
     -fx-focus-color: -fx-accent;
-    -fx-base: #373e43;
+    -fx-base: #1c313a;
     -fx-control-inner-background: derive(-fx-base, 35%);
     -fx-control-inner-background-alt: -fx-control-inner-background;
 }
@@ -17,6 +17,20 @@
 .titulo {
     -fx-font-weight: bold;
     -fx-font-size: 18px;
+}
+
+
+.jfx-button .jfx-rippler{
+    -jfx-rippler-fill: #008ad7;
+}
+JFXButton {
+    -jfx-button-type: RAISED;
+    -fx-background-radius: 10px;
+}
+
+JFXButton:hover {
+    -fx-background-color: #1c313a;
+    -fx-background-radius: 10px;
 }
 
 .button {
