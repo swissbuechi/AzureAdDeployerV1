@@ -1,7 +1,7 @@
 package ch.netider.AzureAdDeployer.gui.controller;
 
 import ch.netider.AzureAdDeployer.gui.model.Connection;
-import ch.netider.AzureAdDeployer.gui.view.management.AlertHelper;
+import ch.netider.AzureAdDeployer.gui.view.AlertHelper;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
