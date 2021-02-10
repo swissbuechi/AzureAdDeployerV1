@@ -1,9 +1,12 @@
 package ch.netider.AzureAdDeployer.gui.controller;
 
 import ch.netider.AzureAdDeployer.service.msol.MsolService;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
+
+import java.util.concurrent.ExecutorService;
 
 public class ConnectionController {
 
@@ -17,7 +20,17 @@ public class ConnectionController {
     }
 
     public void showAllUsersButton(ActionEvent event){
-        mainOutput.setText(msolService.showAllUsers());
+        Task<String> task = new Task<>() {
+            @Override
+            protected String call() {
+                return msolService.showAllUsers();
+            }
+            @Override
+            protected void succeeded() {
+                mainOutput.setText(call());
+            }
+        };
+        new Thread(task).start();
     }
 
     public void createBgAccountsButton(ActionEvent event){
