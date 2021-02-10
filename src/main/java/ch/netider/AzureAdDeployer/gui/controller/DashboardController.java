@@ -1,12 +1,9 @@
 package ch.netider.AzureAdDeployer.gui.controller;
 
-import ch.netider.AzureAdDeployer.gui.CustomPaneLoader;
+import ch.netider.AzureAdDeployer.util.CustomPaneLoader;
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
 import javafx.scene.control.MenuBar;
 import javafx.scene.layout.BorderPane;
-
-import java.awt.event.ActionEvent;
 
 public class DashboardController {
 

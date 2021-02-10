@@ -11,7 +11,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class MainGui extends Application {
-    double x, y = 0;
 
     @Override
     public void start(Stage primaryStage) throws IOException {

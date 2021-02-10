@@ -1,4 +1,4 @@
-package ch.netider.AzureAdDeployer.util.client;
+package ch.netider.AzureAdDeployer.util;
 
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;

@@ -1,4 +1,4 @@
-package ch.netider.AzureAdDeployer.gui;
+package ch.netider.AzureAdDeployer.util;
 
 import ch.netider.AzureAdDeployer.AzureAdDeployerApplication;
 import javafx.fxml.FXMLLoader;
