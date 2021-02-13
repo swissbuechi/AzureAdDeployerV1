@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import javafx.scene.control.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-
+<?import javafx.scene.text.Font?>
 <AnchorPane xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.netider.AzureAdDeployer.gui.controller.SettingsController">
    <children>
       <VBox layoutX="5.0" layoutY="20.0" AnchorPane.bottomAnchor="316.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
@@ -34,5 +35,9 @@
          </children>
       </VBox>
       <TextArea fx:id="mainOutput" editable="false" layoutX="23.0" layoutY="408.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="200.0" />
+      <ProgressIndicator fx:id="progress" layoutX="289.0" layoutY="323.0" maxHeight="20.0" maxWidth="20.0"
+                         minHeight="20.0" minWidth="20.0" progress="0.0" style="visibility: hidden;"
+                         AnchorPane.bottomAnchor="143.0" AnchorPane.leftAnchor="289.0" AnchorPane.rightAnchor="288.0"
+                         AnchorPane.topAnchor="323.0"/>
    </children>
 </AnchorPane>
