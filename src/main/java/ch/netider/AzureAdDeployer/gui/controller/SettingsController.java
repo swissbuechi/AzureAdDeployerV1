@@ -41,7 +41,7 @@ public class SettingsController {
     }
 
 
-    public void installMsOnButton(ActionEvent event){
+    public void installMsOnButton(ActionEvent event) {
         Task<String> task = new Task<>() {
             @Override
             protected String call() {
@@ -61,7 +61,7 @@ public class SettingsController {
         new Thread(task).start();
     }
 
-    public void uninstallMsOnButton(ActionEvent event){
+    public void uninstallMsOnButton(ActionEvent event) {
         Task<String> task = new Task<>() {
             @Override
             protected String call() {
