@@ -1,11 +1,6 @@
 package ch.netider.AzureAdDeployer;
 
 import ch.netider.AzureAdDeployer.gui.MainGui;
-import ch.netider.AzureAdDeployer.gui.model.Connection;
-import ch.netider.AzureAdDeployer.gui.model.Connections;
-import ch.netider.AzureAdDeployer.service.FileService;
-
-import java.util.ArrayList;
 
 public class AzureAdDeployerApplication {
 
@@ -21,6 +16,32 @@ public class AzureAdDeployerApplication {
 //        connections = fileService.loadConnections();
 //        connections.addConnection(connection1);
 //        fileService.saveConnections(connections);
+
+//        JsonHandler jsonHandler = new JsonHandler();
+//
+//        MsolService msolService = new MsolService();
+//
+////        String json = msolService.getAllUsers();
+//
+//        String json = msolService.showAllUsers();
+//
+//        System.out.println("JSON: " + json);
+//
+//        Type userListType = new TypeToken<ArrayList<User>>(){}.getType();
+//
+//        Gson gson = new Gson();
+//        ArrayList<User> userArray = gson.fromJson(json, userListType);
+//
+//        for(User user : userArray) {
+//            System.out.println(user);
+//        }
+
+//        Users msolUsers = jsonHandler.toMsolUser(json);
+//
+//        for (User m : msolUsers.getUsers()) {
+//            System.out.println(m.getDisplayName());
+//        }
+
 
         MainGui mainGui = new MainGui();
         mainGui.show();

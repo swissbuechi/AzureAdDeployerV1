@@ -1,2 +1,4 @@
-package ch.netider.AzureAdDeployer.gui.controller;public class UserManagerController {
+package ch.netider.AzureAdDeployer.gui.controller;
+
+public class UserManagerController {
 }

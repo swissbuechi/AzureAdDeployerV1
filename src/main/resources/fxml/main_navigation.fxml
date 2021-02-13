@@ -5,7 +5,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-
 <BorderPane fx:id="mainPane" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.netider.AzureAdDeployer.gui.controller.MainNavigationController">
     <top>
         <MenuBar fx:id="topMenu" style="-fx-background-color: #1c313a;" BorderPane.alignment="CENTER">
@@ -22,7 +21,8 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="About" />
+                        <MenuItem mnemonicParsing="false" onAction="#openAboutButton" text="About" />
+                  <MenuItem mnemonicParsing="false" onAction="#openHelpButton" text="Help" />
                     </items>
                 </Menu>
             </menus>
@@ -35,7 +35,7 @@
                     <children>
                         <VBox alignment="TOP_CENTER" prefHeight="217.0" prefWidth="44.0">
                             <children>
-                                <JFXButton onAction="#openDashboardButton">
+                                <JFXButton onAction="#openHomeButton">
                                     <graphic>
                                         <ImageView fitHeight="46.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
@@ -71,11 +71,23 @@
                                         <Insets bottom="10.0" />
                                     </VBox.margin>
                                 </JFXButton>
-                                <JFXButton onAction="#openConnectionsButton">
+                        <JFXButton layoutX="10.0" layoutY="170.0" onAction="#openUsersManagerButton">
+                           <graphic>
+                              <ImageView fitHeight="46.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/person.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </JFXButton>
+                                <JFXButton onAction="#openUsersManagerLegacyButton">
                                     <graphic>
                                         <ImageView fitHeight="46.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../images/person.png" />
+                                                <Image url="@../images/person_legacy.png" />
                                             </image>
                                         </ImageView>
                                     </graphic>
@@ -83,7 +95,7 @@
                                         <Insets bottom="10.0" />
                                     </VBox.margin>
                                 </JFXButton>
-                        <JFXButton layoutX="10.0" layoutY="120.0" onAction="#openConnectionsButton">
+                        <JFXButton layoutX="10.0" layoutY="120.0" onAction="#openConsoleButton">
                            <graphic>
                               <ImageView fitHeight="46.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                                  <image>

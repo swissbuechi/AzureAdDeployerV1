@@ -1,2 +1,4 @@
-package ch.netider.AzureAdDeployer.gui.controller;public class ConsoleController {
+package ch.netider.AzureAdDeployer.gui.controller;
+
+public class ConsoleController {
 }

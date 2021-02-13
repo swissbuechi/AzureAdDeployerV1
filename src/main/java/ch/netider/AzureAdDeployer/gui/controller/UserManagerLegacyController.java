@@ -6,16 +6,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 
-import java.util.concurrent.ExecutorService;
-
-public class ConnectionController {
+public class UserManagerLegacyController {
 
     @FXML
     TextArea mainOutput;
 
     private MsolService msolService;
 
-    public ConnectionController() {
+    public UserManagerLegacyController() {
         msolService = new MsolService();
     }
 

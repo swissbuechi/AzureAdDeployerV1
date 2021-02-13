@@ -1,6 +1,5 @@
 package ch.netider.AzureAdDeployer.service.maintenance;
 
-import ch.netider.AzureAdDeployer.console.Cli;
 import ch.netider.AzureAdDeployer.session.MaintenanceSession;
 
 public class MaintenanceService {

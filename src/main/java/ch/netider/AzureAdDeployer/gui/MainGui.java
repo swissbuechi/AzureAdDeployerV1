@@ -22,7 +22,7 @@ public class MainGui extends Application {
     }
 
     private void buildMainView(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/dashboard.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/main_navigation.fxml"));
         primaryStage.setTitle(AppConfig.getAppName());
         primaryStage.setMinWidth(400);
         primaryStage.setMinHeight(300);

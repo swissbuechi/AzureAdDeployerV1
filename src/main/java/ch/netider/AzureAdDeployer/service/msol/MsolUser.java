@@ -1,14 +1,12 @@
 package ch.netider.AzureAdDeployer.service.msol;
 
-import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class User {
+import java.util.List;
 
-//    @SerializedName("ExtensionData")
-//    @Expose
-//    private ExtensionData extensionData;
+public class MsolUser {
+
     @SerializedName("AlternateEmailAddresses")
     @Expose
     private List<String> alternateEmailAddresses = null;
@@ -189,14 +187,6 @@ public class User {
     @SerializedName("WhenCreated")
     @Expose
     private String whenCreated;
-
-//    public ExtensionData getExtensionData() {
-//        return extensionData;
-//    }
-//
-//    public void setExtensionData(ExtensionData extensionData) {
-//        this.extensionData = extensionData;
-//    }
 
     public List<String> getAlternateEmailAddresses() {
         return alternateEmailAddresses;
