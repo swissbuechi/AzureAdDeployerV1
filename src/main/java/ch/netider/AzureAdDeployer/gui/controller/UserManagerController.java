@@ -1,7 +1,7 @@
 package ch.netider.AzureAdDeployer.gui.controller;
 
 import ch.netider.AzureAdDeployer.config.AppConfig;
-import ch.netider.AzureAdDeployer.service.msol.MsolService;
+import ch.netider.AzureAdDeployer.service.microsoftonline.MicrosoftOnlineService;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,20 +17,21 @@ public class UserManagerController {
     @FXML
     ProgressIndicator progress;
 
-    private MsolService msolService;
+    private MicrosoftOnlineService microsoftOnlineService;
     @FXML
     private Label appName;
     @FXML
     private Label author;
 
     public UserManagerController() {
-        msolService = new MsolService();
+        microsoftOnlineService = new MicrosoftOnlineService();
     }
+
 
     @FXML
     public void initialize() {
-        appName.setText(AppConfig.getAppName() + " " + AppConfig.getVersion());
-        author.setText("Developed by " + AppConfig.getAuthor());
+        appName.setText(AppConfig.APP_NAME + " " + AppConfig.VERSION);
+        author.setText("Developed by " + AppConfig.AUTHOR);
     }
 
     public void showAllUsersButton(ActionEvent event) {
@@ -38,7 +39,7 @@ public class UserManagerController {
             @Override
             protected String call() {
                 progress.setStyle("visibility: visible");
-                return msolService.showAllUsers();
+                return microsoftOnlineService.showAllUsers();
             }
 
             @Override

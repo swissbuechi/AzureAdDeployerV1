@@ -14,8 +14,8 @@ public class HomeController {
 
     @FXML
     public void initialize() {
-        appName.setText(AppConfig.getAppName() + " " + AppConfig.getVersion());
-        author.setText("Developed by " + AppConfig.getAuthor());
+        appName.setText(AppConfig.APP_NAME + " " + AppConfig.VERSION);
+        author.setText("Developed by " + AppConfig.AUTHOR);
     }
 
 }

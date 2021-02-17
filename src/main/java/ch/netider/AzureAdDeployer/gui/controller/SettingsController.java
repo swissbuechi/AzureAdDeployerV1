@@ -2,7 +2,6 @@ package ch.netider.AzureAdDeployer.gui.controller;
 
 import ch.netider.AzureAdDeployer.service.maintenance.MaintenanceService;
 import javafx.concurrent.Task;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextArea;
@@ -10,10 +9,10 @@ import javafx.scene.control.TextArea;
 public class SettingsController {
 
     @FXML
-    TextArea mainOutput;
+    private TextArea mainOutput;
 
     @FXML
-    ProgressIndicator progress;
+    private ProgressIndicator progress;
 
     private MaintenanceService maintenanceService;
 
@@ -21,7 +20,7 @@ public class SettingsController {
         maintenanceService = new MaintenanceService();
     }
 
-    public void showInstalledModulesButton(ActionEvent event) {
+    public void showInstalledModulesButton() {
         Task<String> task = new Task<>() {
             @Override
             protected String call() {
@@ -41,7 +40,7 @@ public class SettingsController {
     }
 
 
-    public void installMsOnButton(ActionEvent event) {
+    public void installMsOnButton() {
         Task<String> task = new Task<>() {
             @Override
             protected String call() {
@@ -61,7 +60,7 @@ public class SettingsController {
         new Thread(task).start();
     }
 
-    public void uninstallMsOnButton(ActionEvent event) {
+    public void uninstallMsOnButton() {
         Task<String> task = new Task<>() {
             @Override
             protected String call() {

@@ -1,8 +1,7 @@
 package ch.netider.AzureAdDeployer.gui.controller;
 
-import ch.netider.AzureAdDeployer.service.msol.MsolService;
+import ch.netider.AzureAdDeployer.service.microsoftonline.MicrosoftOnlineService;
 import javafx.concurrent.Task;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextArea;
@@ -15,18 +14,18 @@ public class UserManagerLegacyController {
     @FXML
     ProgressIndicator progress;
 
-    private MsolService msolService;
+    private MicrosoftOnlineService microsoftOnlineService;
 
     public UserManagerLegacyController() {
-        msolService = new MsolService();
+        microsoftOnlineService = new MicrosoftOnlineService();
     }
 
-    public void showAllUsersButton(ActionEvent event) {
+    public void showAllUsersButton() {
         Task<String> task = new Task<>() {
             @Override
             protected String call() {
                 progress.setStyle("visibility: visible");
-                return msolService.showAllUsers();
+                return microsoftOnlineService.showAllUsers();
             }
 
             @Override
@@ -40,13 +39,13 @@ public class UserManagerLegacyController {
         new Thread(task).start();
     }
 
-    public void createBgAccountsButton(ActionEvent event) {
+    public void createBgAccountsButton() {
         Task<String> task = new Task<>() {
             @Override
             protected String call() {
                 progress.setStyle("visibility: visible");
-                msolService.createBreakGlassAccounts();
-                return msolService.showBreakGlassAccounts();
+                microsoftOnlineService.createBreakGlassAccounts();
+                return microsoftOnlineService.showBreakGlassAccounts();
             }
 
             @Override
@@ -60,12 +59,12 @@ public class UserManagerLegacyController {
         new Thread(task).start();
     }
 
-    public void showBgAccountsButton(ActionEvent event) {
+    public void showBgAccountsButton() {
         Task<String> task = new Task<>() {
             @Override
             protected String call() {
                 progress.setStyle("visibility: visible");
-                return msolService.showBreakGlassAccounts();
+                return microsoftOnlineService.showBreakGlassAccounts();
             }
 
             @Override
@@ -79,13 +78,13 @@ public class UserManagerLegacyController {
         new Thread(task).start();
     }
 
-    public void removeBgAccountsButton(ActionEvent event) {
+    public void removeBgAccountsButton() {
         Task<String> task = new Task<>() {
             @Override
             protected String call() {
                 progress.setStyle("visibility: visible");
-                msolService.removeBreakGlassAccounts();
-                return msolService.showBreakGlassAccounts();
+                microsoftOnlineService.removeBreakGlassAccounts();
+                return microsoftOnlineService.showBreakGlassAccounts();
             }
 
             @Override
@@ -99,12 +98,12 @@ public class UserManagerLegacyController {
         new Thread(task).start();
     }
 
-    public void checkMfaStatusButton(ActionEvent event) {
+    public void checkMfaStatusButton() {
         Task<String> task = new Task<>() {
             @Override
             protected String call() {
                 progress.setStyle("visibility: visible");
-                return msolService.checkMfa();
+                return microsoftOnlineService.checkMfa();
             }
 
             @Override
@@ -118,13 +117,13 @@ public class UserManagerLegacyController {
         new Thread(task).start();
     }
 
-    public void enableMfaForAllButton(ActionEvent event) {
+    public void enableMfaForAllButton() {
         Task<String> task = new Task<>() {
             @Override
             protected String call() {
                 progress.setStyle("visibility: visible");
-                msolService.enableMfa("raphael.buechi@netider.ch");
-                return msolService.checkMfa();
+                microsoftOnlineService.enableMfa("raphael.buechi@netider.ch");
+                return microsoftOnlineService.checkMfa();
             }
 
             @Override
@@ -138,13 +137,13 @@ public class UserManagerLegacyController {
         new Thread(task).start();
     }
 
-    public void disableMfaForAllButton(ActionEvent event) {
+    public void disableMfaForAllButton() {
         Task<String> task = new Task<>() {
             @Override
             protected String call() {
                 progress.setStyle("visibility: visible");
-                msolService.disableMfa("raphael.buechi@netider.ch");
-                return msolService.checkMfa();
+                microsoftOnlineService.disableMfa("raphael.buechi@netider.ch");
+                return microsoftOnlineService.checkMfa();
             }
 
             @Override

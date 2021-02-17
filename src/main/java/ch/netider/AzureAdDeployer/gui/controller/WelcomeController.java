@@ -14,8 +14,9 @@ public class WelcomeController {
     private Label author;
 
     @FXML
-    public void initialize(){
-        appName.setText(AppConfig.getAppName() + " " + AppConfig.getVersion());
-        author.setText("Developed by " + AppConfig.getAuthor());
+    public void initialize() {
+        appName.setText(AppConfig.APP_NAME + " " + AppConfig.VERSION);
+        author.setText("Developed by " + AppConfig.AUTHOR);
     }
+
 }

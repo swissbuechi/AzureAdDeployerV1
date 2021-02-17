@@ -16,18 +16,17 @@ public class FileService {
 
     private final String configPath;
     private final Gson gson;
-    private JsonReader reader;
 
     public FileService() {
         final AppDirs appDirs = AppDirsFactory.getInstance();
-        this.configPath = appDirs.getUserConfigDir(AppConfig.getAppName(), "", AppConfig.getAuthor());
+        this.configPath = appDirs.getUserConfigDir(AppConfig.APP_NAME, "", AppConfig.AUTHOR);
         this.gson = new Gson();
     }
 
     public Connections loadConnections() {
         Connections connections = new Connections();
         try {
-            this.reader = new JsonReader(new FileReader(configPath + AppConfig.getCONNECTIONS()));
+            JsonReader reader = new JsonReader(new FileReader(configPath + AppConfig.CONNECTIONS));
             connections = gson.fromJson(reader, Connections.class);
         } catch (IOException e) {
             //e.printStackTrace();
@@ -42,10 +41,10 @@ public class FileService {
 
     public void saveConnections(Connections connections) {
         try {
-            File file = new File(configPath + AppConfig.getCONNECTIONS());
+            File file = new File(configPath + AppConfig.CONNECTIONS);
             file.getParentFile().mkdirs();
             String connectionsData = gson.toJson(connections);
-            PrintWriter printWriter = new PrintWriter(new FileWriter(new File(configPath + AppConfig.getCONNECTIONS())));
+            PrintWriter printWriter = new PrintWriter(new FileWriter(new File(configPath + AppConfig.CONNECTIONS)));
             printWriter.print(connectionsData);
             printWriter.close();
         } catch (IOException | SecurityException e) {
@@ -59,12 +58,9 @@ public class FileService {
         List<Connection> newConnectionList = loadConnections().getConnections();
         for (Connection c : connectionList) {
             if (c.getID().equals(connection.getID())) {
-                System.out.println(c.getID());
                 newConnectionList.set(connectionList.indexOf(c), connection);
             }
         }
-        System.out.println(connectionList);
-        System.out.println(newConnectionList);
         Connections newConnections = new Connections();
         newConnections.setConnections(newConnectionList);
         saveConnections(newConnections);
@@ -78,16 +74,12 @@ public class FileService {
 
     public void removeConnection(Connection connection) {
         List<Connection> connectionList = loadConnections().getConnections();
-        System.out.println(connectionList);
         List<Connection> newConnectionList = loadConnections().getConnections();
         for (Connection c : connectionList) {
             if (c.getID().equals(connection.getID())) {
-                System.out.println(c.getID());
                 newConnectionList.remove(connectionList.indexOf(c));
             }
         }
-        System.out.println(connectionList);
-        System.out.println(newConnectionList);
         Connections newConnections = new Connections();
         newConnections.setConnections(newConnectionList);
         saveConnections(newConnections);

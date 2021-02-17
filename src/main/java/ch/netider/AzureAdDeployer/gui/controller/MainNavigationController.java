@@ -62,8 +62,8 @@ public class MainNavigationController {
 
     public void openAboutButton() {
         StringBuilder sb = new StringBuilder();
-        sb.append(AppConfig.getAppName() + " " + AppConfig.getVersion());
-        sb.append("\nDeveloped by ").append(AppConfig.getAuthor());
+        sb.append(AppConfig.APP_NAME + " " + AppConfig.VERSION);
+        sb.append("\nDeveloped by ").append(AppConfig.AUTHOR);
         new AlertHelper(Alert.AlertType.INFORMATION, "About", sb.toString());
     }
 

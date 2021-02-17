@@ -4,22 +4,22 @@ import com.github.tuupertunut.powershelllibjava.PowerShellExecutionException;
 
 import java.io.IOException;
 
-public class MsolSession extends PsSession {
+public class MicrosoftOnlineSession extends PoweShellSession {
 
     private static final String CONNECT = "Connect-MsolService";
     private static final String ERROR = "You must call the Connect-MsolService cmdlet before calling any other cmdlets";
 
-    public MsolSession() {
+    public MicrosoftOnlineSession() {
         super("MsolSession");
     }
 
     @Override
-    public String run(String... input) {
+    public String execute(String... input) {
         super.open();
         try {
             if (getStatus().equals("closed")) {
                 setStatus("open");
-                run(CONNECT);
+                execute(CONNECT);
             }
             setInput(input);
             setRawOutput(super.powerShell.executeCommands(input));
@@ -32,7 +32,7 @@ public class MsolSession extends PsSession {
             setError(getRawOutput());
         } catch (PowerShellExecutionException e) {
             if (e.getMessage().contains(ERROR)) {
-                run(CONNECT);
+                execute(CONNECT);
             }
         }
         return null;

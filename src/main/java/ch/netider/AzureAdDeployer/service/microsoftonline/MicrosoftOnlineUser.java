@@ -1,11 +1,11 @@
-package ch.netider.AzureAdDeployer.service.msol;
+package ch.netider.AzureAdDeployer.service.microsoftonline;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class MsolUser {
+public class MicrosoftOnlineUser {
 
     @SerializedName("AlternateEmailAddresses")
     @Expose

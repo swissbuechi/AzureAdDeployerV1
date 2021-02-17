@@ -1,13 +1,14 @@
 package ch.netider.AzureAdDeployer.session;
 
 import com.github.tuupertunut.powershelllibjava.PowerShell;
+
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * PowerShell Session
  */
-public abstract class PsSession {
+public abstract class PoweShellSession {
 
     private static final AtomicInteger UNIQUE_ID = new AtomicInteger();
 
@@ -20,7 +21,7 @@ public abstract class PsSession {
     private String rawOutput;
     public PowerShell powerShell;
 
-    public PsSession(String name) {
+    public PoweShellSession(String name) {
         this.name = name;
         this.id = UNIQUE_ID.getAndIncrement();
     }
@@ -82,8 +83,9 @@ public abstract class PsSession {
 
     /**
      * Run a PowerShell Session
+     *
      * @param input PowerShell Befehl eingabe
      * @return PowerShell Befehl ausgabe
      */
-    public abstract String run(String... input);
+    public abstract String execute(String... input);
 }

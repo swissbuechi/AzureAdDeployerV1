@@ -23,7 +23,7 @@ public class MainGui extends Application {
 
     private void buildMainView(Stage primaryStage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/main_navigation.fxml"));
-        primaryStage.setTitle(AppConfig.getAppName());
+        primaryStage.setTitle(AppConfig.APP_NAME);
         primaryStage.setMinWidth(400);
         primaryStage.setMinHeight(300);
         primaryStage.getIcons().add(new Image(getClass().getClassLoader().getResource("images/logo.png").toString()));

@@ -4,13 +4,13 @@ import com.github.tuupertunut.powershelllibjava.PowerShellExecutionException;
 
 import java.io.IOException;
 
-public class MaintenanceSession extends PsSession {
+public class MaintenanceSession extends PoweShellSession {
 
     public MaintenanceSession() {
         super("MaintenanceSession");
     }
 
-    public String run(String... input) {
+    public String execute(String... input) {
         super.open();
         try {
             setInput(input);
