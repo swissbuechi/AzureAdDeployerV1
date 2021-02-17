@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>groupId</groupId>
     <artifactId>AzureAdDeployer</artifactId>
-    <version>1.0</version>
+    <version>2.0</version>
     <build>
         <plugins>
             <plugin>
