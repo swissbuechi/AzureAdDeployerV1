@@ -20,15 +20,28 @@
 }
 
 
-.jfx-button .jfx-rippler{
+.jfx-button .jfx-rippler {
     -jfx-rippler-fill: #008ad7;
 }
+
 JFXButton {
     -jfx-button-type: RAISED;
     -fx-background-radius: 10px;
+    -fx-background-color: -fx-control-inner-background;
 }
 
 JFXButton:hover {
+    -fx-background-color: #1c313a;
+    -fx-background-radius: 10px;
+}
+
+JFXButton.main-nav-button {
+    -jfx-button-type: FLAT;
+    -fx-background-radius: 10px;
+    -fx-background-color: #455a64;
+}
+
+JFXButton:hover.main-nav-button {
     -fx-background-color: #1c313a;
     -fx-background-radius: 10px;
 }

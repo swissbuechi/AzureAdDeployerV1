@@ -11,6 +11,10 @@ public class Connections {
         this.connections = new ArrayList<>();
     }
 
+    public Connections(List<Connection> connections) {
+        this.connections = connections;
+    }
+
     public List<Connection> getConnections() {
         return connections;
     }

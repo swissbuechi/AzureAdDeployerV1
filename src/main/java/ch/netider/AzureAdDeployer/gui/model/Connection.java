@@ -7,13 +7,27 @@ public class Connection {
     private static final AtomicInteger UNIQUE_ID = new AtomicInteger();
     private final Integer id;
     private String name;
-    private String status;
+    private boolean status;
     private String userPrinzipalName;
 
     public Connection(String name, String userPrinzipalName) {
         this.name = name;
         this.userPrinzipalName = userPrinzipalName;
         this.id = UNIQUE_ID.incrementAndGet();
+    }
+
+    public Connection(String name, String userPrinzipalName, boolean status) {
+        this.name = name;
+        this.userPrinzipalName = userPrinzipalName;
+        this.status = status;
+        this.id = UNIQUE_ID.incrementAndGet();
+    }
+
+    public Connection(int id, String name, String userPrinzipalName, boolean status) {
+        this.id = id;
+        this.name = name;
+        this.userPrinzipalName = userPrinzipalName;
+        this.status = status;
     }
 
     public Integer getID() {
@@ -28,11 +42,11 @@ public class Connection {
         this.name = name;
     }
 
-    public String getStatus() {
+    public boolean isStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(boolean status) {
         this.status = status;
     }
 
@@ -42,5 +56,10 @@ public class Connection {
 
     public void setUserPrinzipalName(String userPrinzipalName) {
         this.userPrinzipalName = userPrinzipalName;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

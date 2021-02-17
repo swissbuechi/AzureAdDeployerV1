@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -12,74 +13,130 @@
                <children>
                       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="195.0">
                           <children>
-                              <Label alignment="CENTER" prefHeight="25.0" prefWidth="200.0" text="Global User Manager" textAlignment="CENTER">
+                              <Label alignment="CENTER" prefHeight="25.0" prefWidth="200.0" text="Global User Manager"
+                                     textAlignment="CENTER">
                                   <font>
-                                      <Font name="System Bold" size="16.0" />
+                                      <Font name="System Bold" size="16.0"/>
                                   </font>
-                        </Label>
-                              <JFXButton alignment="CENTER" buttonType="RAISED" mnemonicParsing="false" onAction="#showAllUsersButton" prefHeight="37.0" prefWidth="201.0" text="Show All Users">
+                                  <VBox.margin>
+                                      <Insets bottom="10.0"/>
+                                  </VBox.margin>
+                              </Label>
+                              <JFXButton alignment="CENTER" buttonType="RAISED" mnemonicParsing="false"
+                                         onAction="#showAllUsersButton" prefHeight="37.0" prefWidth="201.0"
+                                         text="Show All Users">
                                   <font>
-                                      <Font size="16.0" />
+                                      <Font size="16.0"/>
                                   </font>
-                        </JFXButton>
+                                  <VBox.margin>
+                                      <Insets bottom="10.0"/>
+                                  </VBox.margin>
+                              </JFXButton>
                           </children>
+                          <HBox.margin>
+                              <Insets right="30.0"/>
+                          </HBox.margin>
                       </VBox>
                   <VBox layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="195.0">
                      <children>
-                        <Label alignment="CENTER" prefHeight="25.0" prefWidth="200.0" text="Break Glass Manager" textAlignment="CENTER">
-                           <font>
-                              <Font name="System Bold" size="16.0" />
-                           </font>
-                        </Label>
-                        <JFXButton alignment="CENTER" buttonType="RAISED" mnemonicParsing="false" onAction="#createBgAccountsButton" prefHeight="37.0" prefWidth="201.0" text="Create BG Accounts">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </JFXButton>
-                        <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="10.0" layoutY="35.0" mnemonicParsing="false" onAction="#showBgAccountsButton" prefHeight="37.0" prefWidth="201.0" text="Show BG Accounts">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </JFXButton>
-                        <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="10.0" layoutY="72.0" mnemonicParsing="false" onAction="#removeBgAccountsButton" prefHeight="37.0" prefWidth="201.0" text="Remove BG Accounts">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </JFXButton>
+                         <Label alignment="CENTER" prefHeight="25.0" prefWidth="200.0" text="Break Glass Manager"
+                                textAlignment="CENTER">
+                             <font>
+                                 <Font name="System Bold" size="16.0"/>
+                             </font>
+                             <VBox.margin>
+                                 <Insets bottom="10.0"/>
+                             </VBox.margin>
+                         </Label>
+                         <JFXButton alignment="CENTER" buttonType="RAISED" mnemonicParsing="false"
+                                    onAction="#createBgAccountsButton" prefHeight="37.0" prefWidth="201.0"
+                                    text="Create BG Accounts">
+                             <font>
+                                 <Font size="16.0"/>
+                             </font>
+                             <VBox.margin>
+                                 <Insets bottom="10.0"/>
+                             </VBox.margin>
+                         </JFXButton>
+                         <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="10.0" layoutY="35.0"
+                                    mnemonicParsing="false" onAction="#showBgAccountsButton" prefHeight="37.0"
+                                    prefWidth="201.0" text="Show BG Accounts">
+                             <font>
+                                 <Font size="16.0"/>
+                             </font>
+                             <VBox.margin>
+                                 <Insets bottom="10.0"/>
+                             </VBox.margin>
+                         </JFXButton>
+                         <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="10.0" layoutY="72.0"
+                                    mnemonicParsing="false" onAction="#removeBgAccountsButton" prefHeight="37.0"
+                                    prefWidth="201.0" text="Remove BG Accounts">
+                             <font>
+                                 <Font size="16.0"/>
+                             </font>
+                             <VBox.margin>
+                                 <Insets bottom="10.0"/>
+                             </VBox.margin>
+                         </JFXButton>
                      </children>
+                      <HBox.margin>
+                          <Insets right="30.0"/>
+                      </HBox.margin>
                   </VBox>
                   <VBox layoutX="205.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="195.0">
                      <children>
-                        <Label alignment="CENTER" prefHeight="25.0" prefWidth="200.0" text="MFA Manager" textAlignment="CENTER">
-                           <font>
-                              <Font name="System Bold" size="16.0" />
-                           </font>
-                        </Label>
-                        <JFXButton alignment="CENTER" buttonType="RAISED" mnemonicParsing="false" onAction="#checkMfaStatusButton" prefHeight="37.0" prefWidth="201.0" text="Check MFA Status">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </JFXButton>
-                        <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="10.0" layoutY="35.0" mnemonicParsing="false" onAction="#enableMfaForAllButton" prefHeight="37.0" prefWidth="201.0" text="Enable MFA for all Users">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </JFXButton>
-                        <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="10.0" layoutY="72.0" mnemonicParsing="false" onAction="#disableMfaForAllButton" prefHeight="37.0" prefWidth="201.0" text="Disable MFA for all Users">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </JFXButton>
+                         <Label alignment="CENTER" prefHeight="25.0" prefWidth="200.0" text="MFA Manager"
+                                textAlignment="CENTER">
+                             <font>
+                                 <Font name="System Bold" size="16.0"/>
+                             </font>
+                             <VBox.margin>
+                                 <Insets bottom="10.0"/>
+                             </VBox.margin>
+                         </Label>
+                         <JFXButton alignment="CENTER" buttonType="RAISED" mnemonicParsing="false"
+                                    onAction="#checkMfaStatusButton" prefHeight="37.0" prefWidth="201.0"
+                                    text="Check MFA Status">
+                             <font>
+                                 <Font size="16.0"/>
+                             </font>
+                             <VBox.margin>
+                                 <Insets bottom="10.0"/>
+                             </VBox.margin>
+                         </JFXButton>
+                         <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="10.0" layoutY="35.0"
+                                    mnemonicParsing="false" onAction="#enableMfaForAllButton" prefHeight="37.0"
+                                    prefWidth="201.0" text="Enable MFA for all Users">
+                             <font>
+                                 <Font size="16.0"/>
+                             </font>
+                             <VBox.margin>
+                                 <Insets bottom="10.0"/>
+                             </VBox.margin>
+                         </JFXButton>
+                         <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="10.0" layoutY="72.0"
+                                    mnemonicParsing="false" onAction="#disableMfaForAllButton" prefHeight="37.0"
+                                    prefWidth="201.0" text="Disable MFA for all Users">
+                             <font>
+                                 <Font size="16.0"/>
+                             </font>
+                             <VBox.margin>
+                                 <Insets bottom="10.0"/>
+                             </VBox.margin>
+                         </JFXButton>
                      </children>
+                      <HBox.margin>
+                          <Insets right="30.0"/>
+                      </HBox.margin>
                   </VBox>
                </children>
             </HBox>
             </children>
         </VBox>
         <TextArea fx:id="mainOutput" editable="false" layoutX="23.0" layoutY="408.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="200.0" />
-      <ProgressIndicator fx:id="progress" layoutX="289.0" layoutY="323.0" maxHeight="20.0" maxWidth="20.0"
-                         minHeight="20.0" minWidth="20.0" progress="0.0" style="visibility: hidden;"
-                         AnchorPane.bottomAnchor="143.0" AnchorPane.leftAnchor="289.0" AnchorPane.rightAnchor="288.0"
-                         AnchorPane.topAnchor="323.0"/>
+        <ProgressIndicator fx:id="progress" layoutX="289.0" layoutY="323.0" maxHeight="20.0" maxWidth="20.0"
+                           minHeight="20.0" minWidth="20.0" progress="0.0" style="visibility: hidden;"
+                           AnchorPane.bottomAnchor="143.0" AnchorPane.leftAnchor="289.0" AnchorPane.rightAnchor="288.0"
+                           AnchorPane.topAnchor="323.0"/>
     </children>
 </AnchorPane>

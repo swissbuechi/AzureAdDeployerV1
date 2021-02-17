@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.control.TextArea?>
@@ -12,23 +13,44 @@
          <children>
             <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="195.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="25.0" prefWidth="200.0" text="Maintenance" textAlignment="CENTER">
+                  <Label alignment="CENTER" prefHeight="25.0" prefWidth="200.0" text="Maintenance"
+                         textAlignment="CENTER">
                      <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font></Label>
-                  <JFXButton alignment="CENTER" buttonType="RAISED" mnemonicParsing="false" onAction="#showInstalledModulesButton" prefHeight="37.0" prefWidth="201.0" text="Show installed Modules">
-                     <font>
-                        <Font size="16.0" />
-                     </font></JFXButton>
-                  <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="10.0" layoutY="35.0" mnemonicParsing="false" onAction="#installMsOnButton" prefHeight="37.0" prefWidth="201.0" text="Install / Update MS-On">
-                     <font>
-                        <Font size="16.0" />
+                        <Font name="System Bold" size="16.0"/>
                      </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0"/>
+                     </VBox.margin>
+                  </Label>
+                  <JFXButton alignment="CENTER" buttonType="RAISED" mnemonicParsing="false"
+                             onAction="#showInstalledModulesButton" prefHeight="37.0" prefWidth="201.0"
+                             text="Show installed Modules">
+                     <font>
+                        <Font size="16.0"/>
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0"/>
+                     </VBox.margin>
                   </JFXButton>
-                  <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="10.0" layoutY="72.0" mnemonicParsing="false" onAction="#uninstallMsOnButton" prefHeight="37.0" prefWidth="201.0" text="Uninstall MS-On">
+                  <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="10.0" layoutY="35.0"
+                             mnemonicParsing="false" onAction="#installMsOnButton" prefHeight="37.0" prefWidth="201.0"
+                             text="Install / Update MS-On">
                      <font>
-                        <Font size="16.0" />
+                        <Font size="16.0"/>
                      </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0"/>
+                     </VBox.margin>
+                  </JFXButton>
+                  <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="10.0" layoutY="72.0"
+                             mnemonicParsing="false" onAction="#uninstallMsOnButton" prefHeight="37.0" prefWidth="201.0"
+                             text="Uninstall MS-On">
+                     <font>
+                        <Font size="16.0"/>
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0"/>
+                     </VBox.margin>
                   </JFXButton>
                </children>
             </VBox>

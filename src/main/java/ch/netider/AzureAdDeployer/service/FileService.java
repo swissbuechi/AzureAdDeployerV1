@@ -1,6 +1,7 @@
 package ch.netider.AzureAdDeployer.service;
 
 import ch.netider.AzureAdDeployer.config.AppConfig;
+import ch.netider.AzureAdDeployer.gui.model.Connection;
 import ch.netider.AzureAdDeployer.gui.model.Connections;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
@@ -8,6 +9,7 @@ import net.harawata.appdirs.AppDirs;
 import net.harawata.appdirs.AppDirsFactory;
 
 import java.io.*;
+import java.util.List;
 
 
 public class FileService {
@@ -23,16 +25,19 @@ public class FileService {
     }
 
     public Connections loadConnections() {
+        Connections connections = new Connections();
         try {
             this.reader = new JsonReader(new FileReader(configPath + AppConfig.getCONNECTIONS()));
-        } catch (IOException e){
-            e.printStackTrace();
+            connections = gson.fromJson(reader, Connections.class);
+        } catch (IOException e) {
+            //e.printStackTrace();
         }
-        Connections connections = gson.fromJson(reader, Connections.class);
-        if (connections != null){
+        if (!connections.getConnections().isEmpty()) {
             return connections;
         }
-        return new Connections();
+        connections.addConnection(new Connection("Default", "examle@example.com", true));
+        saveConnections(connections);
+        return connections;
     }
 
     public void saveConnections(Connections connections) {
@@ -46,6 +51,46 @@ public class FileService {
         } catch (IOException | SecurityException e) {
             e.printStackTrace();
         }
+    }
+
+    public void updateConnection(Connection connection) {
+        List<Connection> connectionList = loadConnections().getConnections();
+        System.out.println(connectionList);
+        List<Connection> newConnectionList = loadConnections().getConnections();
+        for (Connection c : connectionList) {
+            if (c.getID().equals(connection.getID())) {
+                System.out.println(c.getID());
+                newConnectionList.set(connectionList.indexOf(c), connection);
+            }
+        }
+        System.out.println(connectionList);
+        System.out.println(newConnectionList);
+        Connections newConnections = new Connections();
+        newConnections.setConnections(newConnectionList);
+        saveConnections(newConnections);
+    }
+
+    public void addConnection(Connection c) {
+        List<Connection> connectionList = loadConnections().getConnections();
+        connectionList.add(c);
+        saveConnections(new Connections(connectionList));
+    }
+
+    public void removeConnection(Connection connection) {
+        List<Connection> connectionList = loadConnections().getConnections();
+        System.out.println(connectionList);
+        List<Connection> newConnectionList = loadConnections().getConnections();
+        for (Connection c : connectionList) {
+            if (c.getID().equals(connection.getID())) {
+                System.out.println(c.getID());
+                newConnectionList.remove(connectionList.indexOf(c));
+            }
+        }
+        System.out.println(connectionList);
+        System.out.println(newConnectionList);
+        Connections newConnections = new Connections();
+        newConnections.setConnections(newConnectionList);
+        saveConnections(newConnections);
     }
 
     public String getConfigPath() {
