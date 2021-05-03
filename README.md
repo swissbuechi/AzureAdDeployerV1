@@ -15,9 +15,9 @@
 
 [2.1.2	Break Glass Account Manager](#_Toc64457034)
 
-[2.1.3	MFA Manager	 PAGEREF](#_Toc64457035)
+[2.1.3	MFA Manager](#_Toc64457035)
 
-[2.2	Settings	 PAGEREF](#_Toc64457036)
+[2.2	Settings](#_Toc64457036)
 
 [2.3	Connection Manager](#_Toc64457037)
 
