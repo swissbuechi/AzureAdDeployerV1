@@ -1,42 +1,31 @@
-﻿![H:\03. Projekt Vorlagen\Vorlagen per Sept 2013\Logos\Logo Schwarz 66 mm\ABBTS\_Logo\_sw\_1mm.wmf](Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.001.png)
+﻿**AzureAdDeployer 2.0**
 
-**Bildungsgang	Informatik**
-
-**Fach	SWE**
-
-**Semester	Semester 5 / 2021**
-
-`	`Visum	Datum: 17.02.2020
-
-**AzureAdDeployer 2.0**
-
-|![](Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.002.png)|
-| :- |
+![](Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.002.png)
 
 
 **Inhalt**
 
-` `TOC \o "1-3" \h \z \u [1	AzureAdDeployer 2.0	 PAGEREF _Toc64457030 \h 3](#_Toc64457030)
+[1	AzureAdDeployer 2.0](#_Toc64457030)
 
-[2	Features	 PAGEREF _Toc64457031 \h 3](#_Toc64457031)
+[2	Features](#_Toc64457031)
 
-[2.1	Legacy User Manager	 PAGEREF _Toc64457032 \h 5](#_Toc64457032)
+[2.1	Legacy User Manager](#_Toc64457032)
 
-[2.1.1	Global User Manager	 PAGEREF _Toc64457033 \h 5](#_Toc64457033)
+[2.1.1	Global User Manager](#_Toc64457033)
 
-[2.1.2	Break Glass Account Manager	 PAGEREF _Toc64457034 \h 6](#_Toc64457034)
+[2.1.2	Break Glass Account Manager](#_Toc64457034)
 
-[2.1.3	MFA Manager	 PAGEREF _Toc64457035 \h 6](#_Toc64457035)
+[2.1.3	MFA Manager	 PAGEREF](#_Toc64457035)
 
-[2.2	Settings	 PAGEREF _Toc64457036 \h 7](#_Toc64457036)
+[2.2	Settings	 PAGEREF](#_Toc64457036)
 
-[2.3	Connection Manager	 PAGEREF _Toc64457037 \h 8](#_Toc64457037)
+[2.3	Connection Manager](#_Toc64457037)
 
-[3	Projekt	 PAGEREF _Toc64457038 \h 9](#_Toc64457038)
+[3	Projekt](#_Toc64457038)
 
-[3.1	Requirements	 PAGEREF _Toc64457039 \h 9](#_Toc64457039)
+[3.1	Requirements](#_Toc64457039)
 
-[4	Klassendiagramm	 PAGEREF _Toc64457040 \h 10](#_Toc64457040)
+[4	Klassendiagramm](#_Toc64457040)
 
 
 
@@ -57,7 +46,7 @@ Die Applikation wird stehts weiterentwickelt und mit neuen Features bestückt.
 
 ![](Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.003.png)
 
-*Abbildung  SEQ Abbildung \\* ARABIC 1: Welcome*
+*Abbildung  SEQ Abbildung : Welcome*
 
 
 
