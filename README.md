@@ -46,13 +46,13 @@ Die Applikation wird stehts weiterentwickelt und mit neuen Features bestückt.
 
 ![](Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.003.png)
 
-*Abbildung  SEQ Abbildung : Welcome*
+*Abbildung  SEQ Abbildung 1: Welcome*
 
 
 
 Sobald das Tool eine Verbindung zu Azure aufbauen möchte, wird folgendes Pop-Up angezeigt:
 
-*Abbildung  SEQ Abbildung \\* ARABIC 2: Azure Login*
+*Abbildung  SEQ Abbildung 2: Azure Login*
 ![](Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.004.png)![](Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.005.png)Aktuell kann nur eine Verbindung aufgebaut werden, somit kann nur ein Azure Active Directory verwaltet werden. Das Tool kann jedoch problemlos mehrmals gestartet werden.
 # **Legacy User Manager**
 Der «Legacy User Manager» ist aus dem Hauptmenü mit einem Klick auf das 2. User Symbol erreichbar. Es wurden hier alle Legacy User Management Funktionen aus der Version 1 implementiert.
@@ -61,11 +61,11 @@ In Zukunft sollte die User Verwaltung jedoch durch den neuen User Manager (1. Sy
 
 ![](Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.006.png)
 
-*Abbildung  SEQ Abbildung \\* ARABIC 3: Legacy User Manager*
+*Abbildung  SEQ Abbildung 3: Legacy User Manager*
 # **Global User Manager**
 Es ist möglich alle Benutzer, welche im Azure AD vorhanden sind, übersichtlich anzeigen zu lassen. Zusätzlich wird noch der MFA Status (Multi-Faktor-Authentifizierung) angezeigt.
 
-![](Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.007.png)*Abbildung  SEQ Abbildung \\* ARABIC 4: Global User Manager*
+![](Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.007.png)*Abbildung  SEQ Abbildung 4: Global User Manager*
 # **Break Glass Account Manager**
 Es ist möglich die Break Glass Accounts im Azure AD zu erstellen, anzeigen oder löschen.
 
@@ -73,13 +73,13 @@ Break Glass Accounts sind Administratoren Accounts welche für die emergency rec
 
 ![](Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.008.png)
 
-*Abbildung  SEQ Abbildung \\* ARABIC 5: Break Glass Account Manager*
+*Abbildung  SEQ Abbildung 5: Break Glass Account Manager*
 # **MFA Manager**
 Es ist möglich die Multi-Faktor-Authentifizierung zu überprüfen, aktivieren oder deaktivieren. Dis kann gleichzeitig direkt für alle User durchgeführt werden.
 
 ![](Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.009.png)
 
-*Abbildung  SEQ Abbildung \\* ARABIC 6: MFA Manager*
+*Abbildung  SEQ Abbildung 6: MFA Manager*
 
 
 # **Settings**
@@ -87,7 +87,7 @@ Die Settings sind aus dem Hauptmenü mit einem Klick auf das Settings Icon errei
 
 ![](Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.010.png)
 
-*Abbildung  SEQ Abbildung \\* ARABIC 7: Settings*
+*Abbildung  SEQ Abbildung 7: Settings*
 
 
 # **Connection Manager**
@@ -101,13 +101,13 @@ Beispiel Pfad Windows: [%LOCALAPPDATA%/netider.ch/AzureAdDeployer](%25LOCALAPPDA
 
 ![](Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.011.png)
 
-*Abbildung  SEQ Abbildung \\* ARABIC 8: Edit / Add / Delete Connections*
+*Abbildung  SEQ Abbildung 8: Edit / Add / Delete Connections*
 
 Zusätzlich sollten die Connections dann im «Connection Dashboard» aufgelistet werden. Von dort aus sollte dann die entsprechende Connection auch direkt geöffnet werden können.
 
 ![](Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.012.png)
 
-*Abbildung  SEQ Abbildung \\* ARABIC 9: Connections Dashboard*
+*Abbildung  SEQ Abbildung 9: Connections Dashboard*
 # **Projekt**
 Der offene Quellcode kann in folgendem Repository angeschaut werden: <https://github.com/swissbuechi/AzureAdDeployer>
 
@@ -129,10 +129,8 @@ Es ist PowerShell in der Plattformunabhängigen Core variante notwendig und eine
 # **Klassendiagramm**
 ![](Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.013.png)
 
-*Abbildung  SEQ Abbildung \\* ARABIC 10: Klassendiagramm Komplett*
+*Abbildung  SEQ Abbildung 10: Klassendiagramm Komplett*
 ![](Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.014.png)
-
-AzureAdDeployer / 2.0	 PAGE   \\* MERGEFORMAT 10/ NUMPAGES   \\* MERGEFORMAT 10	17.02.2021/Raphael Büchi
 
 
 [^1]: <https://github.com/Tuupertunut/PowerShellLibJava>
