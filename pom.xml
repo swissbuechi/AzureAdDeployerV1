@@ -9,28 +9,41 @@
     <build>
         <plugins>
             <plugin>
-                <!-- Build an executable JAR -->
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>3.2.3</version>
+                <groupId>io.github.fvarrui</groupId>
+                <artifactId>javapackager</artifactId>
+                <version>1.5.1</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
                         <goals>
-                            <goal>shade</goal>
+                            <goal>package</goal>
                         </goals>
                         <configuration>
-                            <finalName>AzureAdDeployer</finalName>
-                            <transformers>
-                                <transformer
-                                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>ch.netider.AzureAdDeployer.AzureAdDeployerApplication</mainClass>
-                                </transformer>
-                            </transformers>
+                            <winConfig>
+                                <icoFile>build/azure.ico</icoFile>
+                                <generateSetup>true</generateSetup>
+                                <generateMsi>true</generateMsi>
+                                <generateMsm>true</generateMsm>
+                            </winConfig>
+                            <linuxConfig>
+                                <pngFile>build/azure.png</pngFile>
+                                <generateDeb>true</generateDeb>
+                                <generateRpm>true</generateRpm></linuxConfig>
+                            <macConfig>
+                            </macConfig>
+                            <platform>auto</platform>
+                            <mainClass>ch.netider.AzureAdDeployer.AzureAdDeployerApplication</mainClass>
+                            <bundleJre>true</bundleJre>
+                            <administratorRequired>true</administratorRequired>
+                            <organizationName>netider.ch</organizationName>
+                            <organizationUrl>https://netider.ch</organizationUrl>
+                            <organizationEmail>info@netider.ch</organizationEmail>
+                            <url>https://github.com/swissbuechi/AzureAdDeployer</url>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
