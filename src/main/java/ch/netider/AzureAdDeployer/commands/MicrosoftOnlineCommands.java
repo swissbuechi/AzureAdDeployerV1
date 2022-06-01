@@ -1,4 +1,4 @@
-package ch.netider.AzureAdDeployer.config;
+package ch.netider.AzureAdDeployer.commands;
 
 public class MicrosoftOnlineCommands {
 

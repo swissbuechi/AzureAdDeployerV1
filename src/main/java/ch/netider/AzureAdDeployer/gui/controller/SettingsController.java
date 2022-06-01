@@ -25,7 +25,7 @@ public class SettingsController {
             @Override
             protected String call() {
                 progress.setStyle("visibility: visible");
-                return maintenanceService.showModules();
+                return maintenanceService.showModule();
             }
 
             @Override
@@ -45,8 +45,8 @@ public class SettingsController {
             @Override
             protected String call() {
                 progress.setStyle("visibility: visible");
-                maintenanceService.installMsol();
-                return maintenanceService.showModules();
+                maintenanceService.installModule();
+                return maintenanceService.showModule();
             }
 
             @Override
@@ -65,8 +65,8 @@ public class SettingsController {
             @Override
             protected String call() {
                 progress.setStyle("visibility: visible");
-                maintenanceService.uninstallMsol();
-                return maintenanceService.showModules();
+                maintenanceService.uninstallModule();
+                return maintenanceService.showModule();
             }
 
             @Override

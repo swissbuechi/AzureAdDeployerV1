@@ -1,6 +1,6 @@
 package ch.netider.AzureAdDeployer.service.microsoftonline;
 
-import ch.netider.AzureAdDeployer.config.MicrosoftOnlineCommands;
+import ch.netider.AzureAdDeployer.commands.MicrosoftOnlineCommands;
 import ch.netider.AzureAdDeployer.session.MicrosoftOnlineSession;
 
 import java.util.List;

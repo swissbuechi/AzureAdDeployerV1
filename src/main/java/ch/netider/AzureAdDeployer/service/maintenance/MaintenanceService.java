@@ -1,21 +1,21 @@
 package ch.netider.AzureAdDeployer.service.maintenance;
 
-import ch.netider.AzureAdDeployer.config.MaintenanceCommands;
+import ch.netider.AzureAdDeployer.commands.MaintenanceCommands;
 import ch.netider.AzureAdDeployer.session.MaintenanceSession;
 
 public class MaintenanceService {
 
     private final MaintenanceSession session = new MaintenanceSession();
 
-    public String showModules() {
+    public String showModule() {
         return session.execute(MaintenanceCommands.SHOW_MODULES);
     }
 
-    public void installMsol() {
-        session.execute(MaintenanceCommands.INSTALL_MSOL());
+    public void installModule() {
+        session.execute(MaintenanceCommands.INSTALL_MODULE);
     }
 
-    public void uninstallMsol() {
+    public void uninstallModule() {
         session.execute(MaintenanceCommands.UNINSTALL_MSOL);
     }
 }

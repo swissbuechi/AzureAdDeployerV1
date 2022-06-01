@@ -1,6 +1,6 @@
 ﻿**AzureAdDeployer 2.0**
 
-![](Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.002.png)
+![](doc/readme/Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.002.png)
 
 
 **Inhalt**
@@ -44,7 +44,7 @@ Folgende Features sind in der Version 2.0 verfügbar:
 
 Die Applikation wird stehts weiterentwickelt und mit neuen Features bestückt.
 
-![](Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.003.png)
+![](doc/readme/Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.003.png)
 
 *Abbildung  SEQ Abbildung 1: Welcome*
 
@@ -53,31 +53,31 @@ Die Applikation wird stehts weiterentwickelt und mit neuen Features bestückt.
 Sobald das Tool eine Verbindung zu Azure aufbauen möchte, wird folgendes Pop-Up angezeigt:
 
 *Abbildung  SEQ Abbildung 2: Azure Login*
-![](Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.004.png)![](Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.005.png)Aktuell kann nur eine Verbindung aufgebaut werden, somit kann nur ein Azure Active Directory verwaltet werden. Das Tool kann jedoch problemlos mehrmals gestartet werden.
+![](doc/readme/Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.004.png)![](doc/readme/Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.005.png)Aktuell kann nur eine Verbindung aufgebaut werden, somit kann nur ein Azure Active Directory verwaltet werden. Das Tool kann jedoch problemlos mehrmals gestartet werden.
 # **Legacy User Manager**
 Der «Legacy User Manager» ist aus dem Hauptmenü mit einem Klick auf das 2. User Symbol erreichbar. Es wurden hier alle Legacy User Management Funktionen aus der Version 1 implementiert.
 
 In Zukunft sollte die User Verwaltung jedoch durch den neuen User Manager (1. Symbol) ersetzt werden.
 
-![](Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.006.png)
+![](doc/readme/Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.006.png)
 
 *Abbildung  SEQ Abbildung 3: Legacy User Manager*
 # **Global User Manager**
 Es ist möglich alle Benutzer, welche im Azure AD vorhanden sind, übersichtlich anzeigen zu lassen. Zusätzlich wird noch der MFA Status (Multi-Faktor-Authentifizierung) angezeigt.
 
-![](Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.007.png)*Abbildung  SEQ Abbildung 4: Global User Manager*
+![](doc/readme/Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.007.png)*Abbildung  SEQ Abbildung 4: Global User Manager*
 # **Break Glass Account Manager**
 Es ist möglich die Break Glass Accounts im Azure AD zu erstellen, anzeigen oder löschen.
 
 Break Glass Accounts sind Administratoren Accounts welche für die emergency recovery benötigt werden, falls der Zugriff über die regulären Administratoren Accounts nicht mehr funktioniert.
 
-![](Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.008.png)
+![](doc/readme/Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.008.png)
 
 *Abbildung  SEQ Abbildung 5: Break Glass Account Manager*
 # **MFA Manager**
 Es ist möglich die Multi-Faktor-Authentifizierung zu überprüfen, aktivieren oder deaktivieren. Dis kann gleichzeitig direkt für alle User durchgeführt werden.
 
-![](Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.009.png)
+![](doc/readme/Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.009.png)
 
 *Abbildung  SEQ Abbildung 6: MFA Manager*
 
@@ -85,7 +85,7 @@ Es ist möglich die Multi-Faktor-Authentifizierung zu überprüfen, aktivieren o
 # **Settings**
 Die Settings sind aus dem Hauptmenü mit einem Klick auf das Settings Icon erreichbar. Es ist möglich die benötigten PowerShell Module zu installieren, deinstallieren oder zu aktualisieren.
 
-![](Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.010.png)
+![](doc/readme/Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.010.png)
 
 *Abbildung  SEQ Abbildung 7: Settings*
 
@@ -99,13 +99,13 @@ Die Connections können aktuell über /File/Edit verwaltet werden. Teilweise wer
 
 Beispiel Pfad Windows: [%LOCALAPPDATA%/netider.ch/AzureAdDeployer](%25LOCALAPPDATA%25/netider.ch/AzureAdDeployer)
 
-![](Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.011.png)
+![](doc/readme/Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.011.png)
 
 *Abbildung  SEQ Abbildung 8: Edit / Add / Delete Connections*
 
 Zusätzlich sollten die Connections dann im «Connection Dashboard» aufgelistet werden. Von dort aus sollte dann die entsprechende Connection auch direkt geöffnet werden können.
 
-![](Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.012.png)
+![](doc/readme/Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.012.png)
 
 *Abbildung  SEQ Abbildung 9: Connections Dashboard*
 # **Projekt**
@@ -127,10 +127,10 @@ Es ist PowerShell in der Plattformunabhängigen Core variante notwendig und eine
 
 
 # **Klassendiagramm**
-![](Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.013.png)
+![](doc/readme/Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.013.png)
 
 *Abbildung  SEQ Abbildung 10: Klassendiagramm Komplett*
-![](Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.014.png)
+![](doc/readme/Aspose.Words.a32bae91-5e88-4876-a7f9-37565d642bbc.014.png)
 
 
 [^1]: <https://github.com/Tuupertunut/PowerShellLibJava>
